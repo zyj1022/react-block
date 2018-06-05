@@ -1,0 +1,199 @@
+@charset "UTF-8";
+
+// Ant Design 样式重覆盖
+// ------------------------------------------------------------
+
+@import 'variables';
+
+// ------- ant 统一调整 -------
+// ------------------------------------------------
+.ant-spin-container {text-align: center;}
+.ant-table-thead tr th {text-align: center;}
+.ant-table-tbody tr td {text-align: center;padding:10px 5px;}
+.ant-table-pagination {float:none;}
+
+.ant-table-thead > tr.ant-table-row-hover > td,
+.ant-table-tbody > tr.ant-table-row-hover > td,
+.ant-table-thead > tr:hover > td,
+.ant-table-tbody > tr:hover > td {
+   background-color:$color-light-red;
+}
+.anticon {margin-right: 5px;}
+// ------- ant 表单部分 -------
+// ------------------------------------------------
+
+.ant-select-selection {
+  border-radius: 0;
+}
+
+.ant-btn{
+  font-size: 14px;
+  border-radius: 0;
+}
+
+.ant-btn:hover, .ant-btn:focus {
+  border-color: $color-hover;
+  color:$color-hover;
+}
+
+.ant-btn:active, .ant-btn.active {
+  border-color: $color-active;
+  color:$color-hover;
+}
+.ant-btn-primary {
+  font-size: 14px;
+  background-color: $color-main;
+  border-color: $color-main;
+}
+.ant-btn-primary:hover, .ant-btn-primary:focus {
+  background-color: $color-hover;
+  border-color: $color-hover;
+  color:#fff;
+}
+
+.ant-btn-primary:active, .ant-btn-primary.active {
+  background-color: $color-active;
+  border-color: $color-active;
+  color:#fff;
+}
+.ant-btn-clicked:after {
+  border-color: $color-active;
+}
+
+.ant-input {
+  border-color: $gray-c9;
+  border-radius: 0;
+}
+.ant-input:hover {
+  border-color: $gray-0;
+}
+.ant-input:focus {
+  border-color: $gray-0;
+  box-shadow:0 0 0 2px rgba(0, 0, 0, 0.2);
+}
+.ant-select-selection {
+  border-color: $gray-c9;
+}
+.ant-select-selection:hover {
+  border-color: $gray-0;
+}
+.ant-select-selection:focus {
+  border-color: $gray-0;
+  box-shadow:0 0 0 2px rgba(0, 0, 0, 0.2);
+}
+.ant-calendar-picker {
+  border-color: $gray-0;
+}
+.ant-calendar-picker:hover .ant-calendar-picker-input:not(.ant-input-disabled) {
+  border-color: $gray-0;
+}
+
+
+// ------- 翻页部分 -------
+// ------------------------------------------------
+
+.ant-pagination-item {
+  border-radius: 0;
+  min-width: 32px;
+  height: 32px;
+  line-height: 32px;
+  font-size: 14px;
+}
+.ant-pagination-item a,
+.ant-pagination-item a:hover,{
+  text-decoration: none;
+}
+
+.ant-pagination-prev .ant-pagination-item-link,
+.ant-pagination-next .ant-pagination-item-link {
+  border-radius: 0;
+  min-width: 32px;
+  height: 32px;
+  line-height: 32px;
+}
+
+.ant-pagination-prev .ant-pagination-item-link:hover,
+.ant-pagination-next .ant-pagination-item-link:hover {
+  border-radius: 0;
+  min-width: 32px;
+  height: 32px;
+  line-height: 32px;
+  border-color: $color-main;
+}
+
+.ant-pagination-prev a,
+.ant-pagination-next a {
+  border-radius: 0;
+  min-width: 32px;
+  height: 32px;
+  line-height: 32px;
+}
+
+.ant-pagination-prev,
+.ant-pagination-next,
+.ant-pagination-jump-prev,
+.ant-pagination-jump-next {
+  border-radius: 0;
+  min-width: 32px;
+  height: 32px;
+  line-height: 32px;
+}
+:root .ant-pagination-prev a:after,
+:root .ant-pagination-next a:after {
+  font-size: 16px;
+  margin-top: 0px;
+}
+
+:root .ant-pagination-prev a:hover:after,
+:root .ant-pagination-next a:hover:after {
+  color: $color-main;
+}
+.ant-pagination-item:focus,
+.ant-pagination-item:hover {
+  border-color: $color-main;
+}
+.ant-pagination-item:focus a,
+.ant-pagination-item:hover a {
+  color: $color-main;
+}
+.ant-pagination-item-active {
+  background-color: #fff;
+  border-color: $color-active;
+  color:$color-main;
+}
+.ant-pagination-item-active a,
+.ant-pagination-item-active:focus a,
+.ant-pagination-item-active:hover a {
+  color:$color-main;
+}
+.ant-pagination-item-active:focus,
+.ant-pagination-item-active:hover {
+  background-color: #fff;
+  border-color: $color-hover;
+}
+.ant-pagination-jump-prev:focus:after,
+.ant-pagination-jump-next:focus:after,
+.ant-pagination-jump-prev:hover:after,
+.ant-pagination-jump-next:hover:after {
+  color: $gray-0;
+}
+
+.ant-pagination-prev:focus,
+.ant-pagination-next:focus,
+.ant-pagination-prev:hover,
+.ant-pagination-next:hover {
+  border-color: $color-hover;
+}
+.ant-pagination-prev:focus a,
+.ant-pagination-next:focus a,
+.ant-pagination-prev:hover a,
+.ant-pagination-next:hover a {
+  color: $color-active;
+}
+
+.ant-pagination-prev:focus a:hover
+.ant-pagination-next:focus a:hover,
+.ant-pagination-prev:hover a:hover,
+.ant-pagination-next:hover a:hover {
+  text-decoration: none;
+}

@@ -1,0 +1,31 @@
+<template name="container">
+  <div class="pageMod">
+  <div class="queryForm">
+  <div class="queryTitle">
+     <h2><ant-Icon type="search" /> <span>角色管理</span></h2>
+  </div>
+   <ul class="group">
+      <li class="item">
+        <span class="lable">行业选择</span>
+          <ant-Cascader changeOnSelect allowClear="{false}" options={supplyIndex.industryOptions} placeholder="请选择" onChange={onIndustryChange} style="width: 75%;"></ant-Cascader>
+      </li>
+      <li class="item">
+        <span class="lable">日期</span>
+        <ant-MonthPicker defaultValue="{lastMonth}" onChange={onMonthPickerChange} placeholder="请选择所在月" />
+      </li>
+   </ul>
+   <div class="queryBtns">
+       <ant-Button class="btn" type="primary" onClick={onSearch}>查询</ant-Button>
+   </div>
+  </div>
+
+  <div class="wrapMod">
+    <div class="titleMod">
+        <h2><ant-Icon type="area-chart" /> <span>供应链指数</span></h2>
+    </div>
+    <wee-Bar refName="weeBar" xAxis="{barXAxis}" legend="{barLegend}" data="{barData}" />
+    <wee-Pie refName="weePie" legend="{pieLegend}" data="{pieData}" />
+    <wee-Footer />
+  </div>
+</div>
+</template>

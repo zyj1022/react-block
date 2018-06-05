@@ -1,0 +1,20 @@
+@import 'muss/muss';
+@import 'variables';
+// @import 'override-antd';
+@import 'common';
+
+
+body {
+    color:#333; background: #ebedf2;
+    -webkit-appearance: none;
+    -webkit-font-smoothing:auto;
+    font-size: 14px;
+    font-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+}
+body,
+html {
+  min-width: 1280px;
+}
+
+#page-wrap{transition:all .5s ease-out;}
+.isMenuOpen{padding-left:200px;}

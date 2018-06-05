@@ -1,0 +1,135 @@
+@import 'muss/muss';
+@import 'variables';
+
+.btn-link {margin: 0 10px;color:$color-link;}
+a.btn-link {color:$color-link;}
+a.btn-link:hover {color:$gray-0;}
+
+// ------ 页面全局框架通用样式 ------
+.pageMod {
+  // background-color: #F8F7F4;
+  padding: 80px 20px 20px;
+  min-width: 1200px;
+
+  .ant-table-thead > tr > th {
+    text-align: center;
+    background: #f1f1f1;
+    font-weight: 700;
+  }
+
+  .ant-table-tbody > tr > td {
+    text-align: center;
+  }
+}
+
+.wrapMod {
+  background: #fff;
+  box-shadow: 0 0 6px rgba(44,56,90, 0.1);
+  @include clearfix;
+}
+
+.titleMod {
+  border-bottom: 1px solid #ececec;
+  margin-bottom: 20px;
+  padding: 20px;
+  h2 {
+    font-size: 18px; line-height: 1;font-weight: 400;
+    span {margin-left: 5px;}
+  }
+  .titleBtn {
+    float:right;
+  }
+}
+
+.subTitleMod {
+  border-bottom: 1px solid #ececec;
+  margin-bottom: 20px;
+  padding: 0 20px 20px;
+  h3 {font-size: 16px; line-height: 1;font-weight: 400;
+    span {margin-left: 5px;}
+  }
+}
+
+.contentMod {
+
+}
+
+// ------- 通用布局 -----
+
+.tableWrap {
+  padding: 0 20px 20px;
+}
+
+// 弹出布局
+.modalWrap {
+  .modalTitle {}
+  .modalBox {padding: 0 20px;}
+}
+
+// 表单布局
+.formBox {
+  .item-li { @include clearfix; line-height: 30px; padding-bottom: 10px; margin-bottom: 10px;
+  border-bottom: 1px solid $color-line;}
+  .item-li:last-child {border:none;}
+  .tl {
+    float:left;
+    min-width: 80px;
+  }
+  .tr {
+    float:left;width: 88%;
+  }
+  .btnArea {
+    padding-left: 80px;
+  }
+  button {margin-right: 20px;}
+}
+
+// ------ 查询条件通用样式 ------
+
+.queryForm {
+  background: #fff;
+  margin-bottom: 20px;
+  box-shadow: 0 0 6px rgba(44,56,90, 0.1);
+  .queryTitle {
+    padding: 10px 20px;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 15px;
+    h2 {font-size: 18px;font-weight: 400;}
+    span {margin-left: 5px;}
+  }
+  .group {
+    border-bottom: 1px solid #eee;
+    margin-bottom: 15px;
+    padding: 0 20px;
+  }
+  .group:after {
+    clear: both;
+    display: table;
+    content: "";
+  }
+  .item {float:left;margin-bottom:15px;width: 33.3333%;}
+  .lable {
+    float: left;
+    margin-right: 10px;
+    line-height: 28px;
+    min-width: 60px;
+  }
+  .ant-calendar-picker {
+    width: 75%;
+  }
+  .ant-select {width: 75%;}
+  .queryBtns {
+    width: 100%;
+    text-align: right;
+    padding: 0 20px;
+    margin-bottom: 15px;
+  }
+  .ant-select-arrow {
+    top: 74%;
+  }
+}
+.queryForm:after {
+  clear: both;
+  display: table;
+  content: "";
+}
