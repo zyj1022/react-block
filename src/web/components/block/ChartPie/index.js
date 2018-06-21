@@ -1,7 +1,7 @@
 import Pie from './pie';
 import {registerComponent} from 'nornj';
 
-registerComponent({'wee-Pie': Pie});
+registerComponent({'ec-Pie': Pie});
 
 export {
   Pie

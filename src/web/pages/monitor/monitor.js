@@ -19,14 +19,14 @@ import Message from 'flarej/lib/components/antd/message';
 import Notification from 'flarej/lib/components/antd/notification';
 import graphic from 'echarts/lib/util/graphic.js'
 import { autobind } from 'core-decorators';
-import styles from './page2.m.scss';
-import tmpls from './page2.t.html';
+import styles from './monitor.m.scss';
+import tmpls from './monitor.t.html';
 
 //页面容器组件
 @inject('store')
 @observer
-@registerTmpl('Page2')
-export default class Page2 extends Component {
+@registerTmpl('Monitor')
+export default class Monitor extends Component {
 
   constructor(props) {
     super(props);
@@ -40,29 +40,29 @@ export default class Page2 extends Component {
   onSearch() {
     const closeLoading = Message.loading('正在获取数据...', 0)
     Promise.all([
-      this.props.store.page2.getSummaryData(),
-      this.props.store.page2.getGrowthData(),
-      this.props.store.page2.getSubCategoryData(),
-      this.props.store.page2.getBarSubCategoryData(),
-      this.props.store.page2.getTableSubCategoryData(),
-      this.props.store.page2.getBrandCompareList(),
-      this.props.store.page2.getBrandCompareItemForCategory()
+      this.props.store.monitor.getSummaryData(),
+      this.props.store.monitor.getGrowthData(),
+      this.props.store.monitor.getSubCategoryData(),
+      this.props.store.monitor.getBarSubCategoryData(),
+      this.props.store.monitor.getTableSubCategoryData(),
+      this.props.store.monitor.getBrandCompareList(),
+      this.props.store.monitor.getBrandCompareItemForCategory()
     ]).then(() => {
-      this.props.store.page2.clearCompareDockData();
+      this.props.store.monitor.clearCompareDockData();
       closeLoading();
     });
   }
 
   render() {
-    const { store: { page2 } } = this.props;
-    return tmpls.page2(this.state, this.props, this, {
+    const { store: { monitor } } = this.props;
+    return tmpls.monitor(this.state, this.props, this, {
       styles,
-      page2
+      monitor
     });
   }
 }
 
-@registerTmpl('evalSummaryPage2')
+@registerTmpl('evalSummaryMonitor')
 @inject('store')
 @observer
 class EvalSummary extends Component {
@@ -77,16 +77,16 @@ class EvalSummary extends Component {
   componentDidMount() {}
 
   render() {
-    const { store: { page2 } } = this.props;
+    const { store: { monitor } } = this.props;
     return tmpls.evalSummary(this.state, this.props, this, {
       styles,
-      page2
+      monitor
     });
   }
 }
 
 
-@registerTmpl('totalComparePage2')
+@registerTmpl('totalCompareMonitor')
 @inject('store')
 @observer
 class TotalCompare extends Component {
@@ -152,7 +152,7 @@ class TotalCompare extends Component {
             color: '#333'
           }
         },
-        data: toJS(this.props.store.page2.salesData && this.props.store.page2.salesData[2])
+        data: toJS(this.props.store.monitor.salesData && this.props.store.monitor.salesData[2])
       },
       yAxis: {
         show: false,
@@ -179,12 +179,12 @@ class TotalCompare extends Component {
   }
 
   @computed get salesData() {
-    const lineData = toJS(this.props.store.page2.salesData && this.props.store.page2.salesData[1].map(item => (item / 10000).toFixed(2)))
+    const lineData = toJS(this.props.store.monitor.salesData && this.props.store.monitor.salesData[1].map(item => (item / 10000).toFixed(2)))
     return [{
         name: '属性1',
         type: 'bar',
         barWidth: '30px',
-        data: toJS(this.props.store.page2.salesData && this.props.store.page2.salesData[0].map(item => (item / 10000).toFixed(2)))
+        data: toJS(this.props.store.monitor.salesData && this.props.store.monitor.salesData[0].map(item => (item / 10000).toFixed(2)))
       },
       {
         name: '属性2',
@@ -195,6 +195,7 @@ class TotalCompare extends Component {
   };
 
   @computed get salesRatesOptions() {
+    console.log('salesRatesOptions', toJS(this.props.store.monitor.salesRatesData && this.props.store.monitor.salesRatesData[2]))
     return {
       grid: {
         left: '3%',
@@ -247,7 +248,7 @@ class TotalCompare extends Component {
             color: '#333'
           }
         },
-        data: toJS(this.props.store.page2.salesRatesData && this.props.store.page2.salesRatesData[2])
+        data: toJS(this.props.store.monitor.salesRatesData && this.props.store.monitor.salesRatesData[2])
       },
       yAxis: {
         type: 'value',
@@ -274,11 +275,12 @@ class TotalCompare extends Component {
   };
 
   @computed get salesRatesData() {
-    const lineData = toJS(this.props.store.page2.salesRatesData && this.props.store.page2.salesRatesData[1].map(item => (item * 100).toFixed(2)));
+    const lineData = toJS(this.props.store.monitor.salesRatesData && this.props.store.monitor.salesRatesData[0].map(item => (item * 100).toFixed(2)));
+    console.log('salesRatesData', lineData);
     return [{
         name: '属性1',
         type: 'line',
-        data: toJS(this.props.store.page2.salesRatesData && this.props.store.page2.salesRatesData[0].map(item => (item * 100).toFixed(2)))
+        data: toJS(this.props.store.monitor.salesRatesData && this.props.store.monitor.salesRatesData[0].map(item => (item * 100).toFixed(2)))
       },
       {
         name: '属性2',
@@ -293,19 +295,19 @@ class TotalCompare extends Component {
       unit = '';
     switch (this.switchIndex) {
       case 'a':
-        dataX = toJS(this.props.store.page2.growthDataUV && this.props.store.page2.growthDataUV[2]);
+        dataX = toJS(this.props.store.monitor.growthDataUV && this.props.store.monitor.growthDataUV[2]);
         unit = '%';
         break;
       case 'b':
-        dataX = toJS(this.props.store.page2.growthDataUVConvert && this.props.store.page2.growthDataUVConvert[2]);
+        dataX = toJS(this.props.store.monitor.growthDataUVConvert && this.props.store.monitor.growthDataUVConvert[2]);
         unit = '%'
         break;
       case 'c':
-        dataX = toJS(this.props.store.page2.growthDataUser && this.props.store.page2.growthDataUser[2]);
+        dataX = toJS(this.props.store.monitor.growthDataUser && this.props.store.monitor.growthDataUser[2]);
         unit = '%';
         break;
       case 'd':
-        dataX = toJS(this.props.store.page2.growthDataPrice && this.props.store.page2.growthDataPrice[2]);
+        dataX = toJS(this.props.store.monitor.growthDataPrice && this.props.store.monitor.growthDataPrice[2]);
         unit = '';
         break;
     }
@@ -392,20 +394,20 @@ class TotalCompare extends Component {
       data2 = [];
     switch (this.switchIndex) {
       case 'a':
-        data1 = toJS(this.props.store.page2.growthDataUV && this.props.store.page2.growthDataUV[0].map(item => (item * 100).toFixed(2)));
-        data2 = toJS(this.props.store.page2.growthDataUV && this.props.store.page2.growthDataUV[1].map(item => (item * 100).toFixed(2)));
+        data1 = toJS(this.props.store.monitor.growthDataUV && this.props.store.monitor.growthDataUV[0].map(item => (item * 100).toFixed(2)));
+        data2 = toJS(this.props.store.monitor.growthDataUV && this.props.store.monitor.growthDataUV[1].map(item => (item * 100).toFixed(2)));
         break;
       case 'b':
-        data1 = toJS(this.props.store.page2.growthDataUVConvert && this.props.store.page2.growthDataUVConvert[0].map(item => (item * 100).toFixed(2)));
-        data2 = toJS(this.props.store.page2.growthDataUVConvert && this.props.store.page2.growthDataUVConvert[1].map(item => (item * 100).toFixed(2)));
+        data1 = toJS(this.props.store.monitor.growthDataUVConvert && this.props.store.monitor.growthDataUVConvert[0].map(item => (item * 100).toFixed(2)));
+        data2 = toJS(this.props.store.monitor.growthDataUVConvert && this.props.store.monitor.growthDataUVConvert[1].map(item => (item * 100).toFixed(2)));
         break;
       case 'c':
-        data1 = toJS(this.props.store.page2.growthDataUser && this.props.store.page2.growthDataUser[0].map(item => (item * 100).toFixed(2)));
-        data2 = toJS(this.props.store.page2.growthDataUser && this.props.store.page2.growthDataUser[1].map(item => (item * 100).toFixed(2)));
+        data1 = toJS(this.props.store.monitor.growthDataUser && this.props.store.monitor.growthDataUser[0].map(item => (item * 100).toFixed(2)));
+        data2 = toJS(this.props.store.monitor.growthDataUser && this.props.store.monitor.growthDataUser[1].map(item => (item * 100).toFixed(2)));
         break;
       case 'd':
-        data1 = toJS(this.props.store.page2.growthDataPrice && this.props.store.page2.growthDataPrice[0].map(item => (item).toFixed(2)));
-        data2 = toJS(this.props.store.page2.growthDataPrice && this.props.store.page2.growthDataPrice[1].map(item => (item).toFixed(2)));
+        data1 = toJS(this.props.store.monitor.growthDataPrice && this.props.store.monitor.growthDataPrice[0].map(item => (item).toFixed(2)));
+        data2 = toJS(this.props.store.monitor.growthDataPrice && this.props.store.monitor.growthDataPrice[1].map(item => (item).toFixed(2)));
         break;
     }
     return [{
@@ -431,15 +433,15 @@ class TotalCompare extends Component {
   }
 
   render() {
-    const { store: { page2 } } = this.props;
+    const { store: { monitor } } = this.props;
     return tmpls.totalCompare(this.state, this.props, this, {
       styles,
-      page2
+      monitor
     });
   }
 }
 
-@registerTmpl('categoryComparePage2')
+@registerTmpl('categoryCompareMonitor')
 @inject('store')
 @observer
 class CategoryCompare extends Component {
@@ -470,7 +472,7 @@ class CategoryCompare extends Component {
       toolbox: { show: false },
       legend: {
         left: 'center',
-        data: toJS(this.props.store.page2.pieSubCategoryData && this.props.store.page2.pieSubCategoryData[2])
+        data: toJS(this.props.store.monitor.pieSubCategoryData && this.props.store.monitor.pieSubCategoryData[2])
       }
     };
   };
@@ -478,17 +480,17 @@ class CategoryCompare extends Component {
   @computed get pieCategoryData() {
     let _data1 = [],
       _data2 = [];
-    if (this.props.store.page2.pieSubCategoryData) {
-      this.props.store.page2.pieSubCategoryData[0].forEach((item, i) => {
+    if (this.props.store.monitor.pieSubCategoryData) {
+      this.props.store.monitor.pieSubCategoryData[0].forEach((item, i) => {
         _data1.push({
           value: (item / 10000).toFixed(2),
-          name: this.props.store.page2.pieSubCategoryData[2][i]
+          name: this.props.store.monitor.pieSubCategoryData[2][i]
         });
       });
-      this.props.store.page2.pieSubCategoryData[1].forEach((item, i) => {
+      this.props.store.monitor.pieSubCategoryData[1].forEach((item, i) => {
         _data2.push({
           value: (item / 10000).toFixed(2),
-          name: this.props.store.page2.pieSubCategoryData[2][i]
+          name: this.props.store.monitor.pieSubCategoryData[2][i]
         });
       });
     }
@@ -596,7 +598,7 @@ class CategoryCompare extends Component {
           rotate: 30,
           interval: 0
         },
-        data: toJS(this.props.store.page2.barSubCategoryData && this.props.store.page2.barSubCategoryData[2])
+        data: toJS(this.props.store.monitor.barSubCategoryData && this.props.store.monitor.barSubCategoryData[2])
       },
       yAxis: {
         type: 'value',
@@ -652,12 +654,12 @@ class CategoryCompare extends Component {
     return [{
         name: '属性1',
         type: 'bar',
-        data: toJS(this.props.store.page2.barSubCategoryData && this.props.store.page2.barSubCategoryData[0].map(item => (item * 100).toFixed(2)))
+        data: toJS(this.props.store.monitor.barSubCategoryData && this.props.store.monitor.barSubCategoryData[0].map(item => (item * 100).toFixed(2)))
       },
       {
         name: '属性2',
         type: 'bar',
-        data: toJS(this.props.store.page2.barSubCategoryData && this.props.store.page2.barSubCategoryData[1].map(item => (item * 100).toFixed(2)))
+        data: toJS(this.props.store.monitor.barSubCategoryData && this.props.store.monitor.barSubCategoryData[1].map(item => (item * 100).toFixed(2)))
       }
     ];
   };
@@ -670,16 +672,16 @@ class CategoryCompare extends Component {
   }
 
   render() {
-    const { store: { page2 } } = this.props;
+    const { store: { monitor } } = this.props;
 
     return tmpls.categoryCompare(this.state, this.props, this, {
       styles,
-      page2
+      monitor
     });
   }
 }
 
-@registerTmpl('brandComparePage2')
+@registerTmpl('brandCompareMonitor')
 @inject('store')
 @observer
 class BrandCompare extends Component {
@@ -879,22 +881,22 @@ class BrandCompare extends Component {
   onBrandChecked(item) {
     return (e) => {
       if (e.target.checked) {
-        this.props.store.page2.setCompareDockVisible(true);
-        if (this.props.store.page2.compareDockData) {
-          if (this.props.store.page2.compareDockData.length + 1 < 5) {
-            this.props.store.page2.setChecked(item, true);
-            this.props.store.page2.setCompareDockData(item);
+        this.props.store.monitor.setCompareDockVisible(true);
+        if (this.props.store.monitor.compareDockData) {
+          if (this.props.store.monitor.compareDockData.length + 1 < 5) {
+            this.props.store.monitor.setChecked(item, true);
+            this.props.store.monitor.setCompareDockData(item);
           } else {
             e.target.checked = false;
             Notification.error({ description: '最多可以对比三个品牌', duration: 2 });
           }
         } else {
-          this.props.store.page2.setChecked(item, true);
-          this.props.store.page2.setCompareDockData(item);
+          this.props.store.monitor.setChecked(item, true);
+          this.props.store.monitor.setCompareDockData(item);
         }
       } else {
-        this.props.store.page2.setChecked(item, false);
-        this.props.store.page2.removeCompareDockData(item);
+        this.props.store.monitor.setChecked(item, false);
+        this.props.store.monitor.removeCompareDockData(item);
       }
     }
   }
@@ -920,59 +922,59 @@ class BrandCompare extends Component {
 
   @autobind
   closeCompareTable() {
-    this.props.store.page2.setShowCompareTable(false);
-    this.props.store.page2.clearCompareDockData();
+    this.props.store.monitor.setShowCompareTable(false);
+    this.props.store.monitor.clearCompareDockData();
   }
 
   @autobind
   onPaging(page, pageSize) {
     const closeLoading = Message.loading('正在获取数据...', 0)
     Promise.all([
-      this.props.store.page2.getBrandCompareList()
+      this.props.store.monitor.getBrandCompareList()
     ]).then(() => {
       closeLoading();
     });
   }
 
   render() {
-    const { store: { page2 } } = this.props;
+    const { store: { monitor } } = this.props;
 
     return tmpls.brandCompare(this.state, this.props, this, {
       styles,
-      page2
+      monitor
     });
   }
 }
 
-@registerTmpl('compareDockPage2')
+@registerTmpl('compareDockMonitor')
 @inject('store')
 @observer
 class CompareDock extends Component {
   @autobind
   deleteCompareItem(item) {
     return (e) => {
-      this.props.store.page2.removeCompareDockData(item);
-      this.props.store.page2.setChecked(item, false);
+      this.props.store.monitor.removeCompareDockData(item);
+      this.props.store.monitor.setChecked(item, false);
     }
   }
 
   @autobind
   closeCompareDock() {
-    this.props.store.page2.setCompareDockVisible(false);
+    this.props.store.monitor.setCompareDockVisible(false);
   }
 
   @autobind
   compareIt() {
-    this.props.store.page2.setShowCompareTable(true);
-    this.props.store.page2.setCompareDockVisible(false);
+    this.props.store.monitor.setShowCompareTable(true);
+    this.props.store.monitor.setCompareDockVisible(false);
   }
 
   render() {
-    const { store: { page2 } } = this.props;
-    
+    const { store: { monitor } } = this.props;
+
     return tmpls.compareDock(this.state, this.props, this, {
       styles,
-      page2
+      monitor
     });
   }
 }

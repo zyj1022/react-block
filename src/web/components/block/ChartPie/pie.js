@@ -7,6 +7,7 @@ import echarts from 'echarts/lib/echarts';
 import 'echarts/lib/component/visualMap';
 import 'echarts/lib/component/calendar';
 import 'flarej/lib/components/ECharts/pieChart';
+import * as chart from '../chartConfig';
 
 @registerTmpl('Pie')
 class Pie extends Component {
@@ -14,6 +15,7 @@ class Pie extends Component {
     const { refName, title, legend, data } = this.props;
     return tmpls.pie(this.props, this, {
       optionConfig: {
+        color: chart.colors,
         grid: {
           left: '3%',
           right: '3%',

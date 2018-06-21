@@ -1,8 +1,9 @@
 <template name="container">
   <div class="pageMod">
-  <div class="queryForm">
+
+  <!-- <div class="queryForm">
   <div class="queryTitle">
-     <h2><ant-Icon type="search" /> <span>角色管理</span></h2>
+     <h2><ant-Icon type="search" /> <span>查询条件</span></h2>
   </div>
    <ul class="group">
       <li class="item">
@@ -17,14 +18,31 @@
    <div class="queryBtns">
        <ant-Button class="btn" type="primary" onClick={onSearch}>查询</ant-Button>
    </div>
-  </div>
+  </div> -->
+  <{ChartCard} />
 
   <div class="wrapMod">
     <div class="titleMod">
-        <h2><ant-Icon type="area-chart" /> <span>供应链指数</span></h2>
+        <h2><ant-Icon type="area-chart" /> <span>图表展示</span></h2>
     </div>
-    <wee-Bar refName="weeBar" xAxis="{barXAxis}" legend="{barLegend}" data="{barData}" />
-    <wee-Pie refName="weePie" legend="{pieLegend}" data="{pieData}" />
+    <div class="row">
+       <ul>
+          <li class="col-6">
+             <ec-Bar xAxis="{barXAxis}" legend="{barLegend}" data="{barData}" />
+          </li>
+          <li class="col-6">
+             <ec-Line xAxis="{lineXAxis}" legend="{linbeLegend}" data="{lineData}" />
+          </li>
+          <li class="col-6">
+             <ec-Pie legend="{pieCircleLegend}" data="{pieCircleData}" />
+          </li>
+          <li class="col-6">
+             <ec-Pie legend="{pieLegend}" data="{pieData}" />
+          </li>
+       </ul>
+    </div>
+
+
     <wee-Footer />
   </div>
 </div>

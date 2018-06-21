@@ -1,7 +1,7 @@
 import Bar from './bar';
 import {registerComponent} from 'nornj';
 
-registerComponent({'wee-Bar': Bar});
+registerComponent({'ec-Bar': Bar});
 
 export {
   Bar

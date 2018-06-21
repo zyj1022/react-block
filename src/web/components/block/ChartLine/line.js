@@ -1,22 +1,18 @@
 import React, { Component } from 'react';
 import nj from 'nornj';
 import { registerTmpl } from 'nornj-react';
-
-import tmpls from './bar.t.html';
+import tmpls from './line.t.html';
 
 import echarts from 'echarts/lib/echarts';
 import 'echarts/lib/component/visualMap';
-import 'echarts/lib/component/calendar';
-import 'flarej/lib/components/ECharts/barChart';
-import graphic from 'echarts/lib/util/graphic.js';
-
+import 'flarej/lib/components/ECharts/lineChart';
 import * as chart from '../chartConfig';
 
-@registerTmpl('Bar')
-class Bar extends Component {
+@registerTmpl('Line')
+class Line extends Component {
   render() {
     const { refName, xAxis, legend, data } = this.props;
-    return tmpls.bar(this.props, this, {
+    return tmpls.line(this.props, this, {
       optionConfig: {
         color: chart.colors,
         grid: {
@@ -30,16 +26,27 @@ class Bar extends Component {
           show: true,
           left: 'center',
           top: 0,
-          data: legend
+          data: legend,
         },
         tooltip: {
           show: true,
-          trigger: 'axis'
+          trigger: 'axis',
+          formatter: (params) => {
+            var result = `<div>${params[0].name}</div>`;
+            params.forEach(function(item) {
+              result += `<div>
+                             <span style="display:inline-block;margin-right:5px;border-radius:10px;width:9px;height:9px;background-color:${item.color}"></span>
+                             <span>${item.seriesName}:</span>
+                             <span>${item.data || '--'}%</span>
+                         </div>`;
+            });
+            return result
+          }
         },
         toolbox: { show: false },
         xAxis: {
           type: 'category',
-          boundaryGap: true,
+          boundaryGap: false,
           splitLine: {
             show: true,
             lineStyle: {
@@ -54,11 +61,9 @@ class Bar extends Component {
           axisLabel: {
             textStyle: {
               color: '#333'
-            },
-            rotate: 30,
-            interval: 0
+            }
           },
-          data: xAxis
+          data: xAxis,
         },
         yAxis: {
           type: 'value',
@@ -78,43 +83,12 @@ class Bar extends Component {
             textStyle: {
               color: '#333'
             },
-            formatter: `{value}%`
+            formatter: '{value}%'
           }
-        },
-        series: [
-          {
-            name: '属性1',
-            type: 'bar',
-            smooth: true,
-            itemStyle: {
-              normal: {
-                color: '#616dd3'
-              }
-            },
-            lineStyle: {
-              normal: {
-                color: '#616dd3'
-              }
-            },
-            areaStyle: {
-              normal: {
-                color: new graphic.LinearGradient(0, 0, 0, 1, [
-                  {
-                    offset: 0.5,
-                    color: 'rgba(97, 109, 211, .3)'
-                  },
-                  {
-                    offset: 1,
-                    color: 'rgba(255, 255, 255, .2)'
-                  }
-                ])
-              }
-            }
-          }
-        ]
+        }
       }
     });
   }
 }
 
-export default Bar;
+export default Line;

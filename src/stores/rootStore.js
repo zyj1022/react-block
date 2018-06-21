@@ -2,9 +2,9 @@ import { types } from "mobx-state-tree";
 import { CommonStore } from "./commonStore";
 import HeaderStore from "./headerStore";
 import SiderStore from "./siderStore";
-import Page1Store from "./pages/page1Store";
-import Page2Store from "./pages/page2Store";
 import FormExampleStore from "./pages/formExampleStore";
+import AnalysisStore from "./pages/analysisStore";
+import MonitorStore from "./pages/monitorStore";
 //{importStore}//
 
 const RootStore = types.model("RootStore", {
@@ -28,8 +28,8 @@ const RootStore = types.model("RootStore", {
         name: 'Dashboard',
         expanded: false,
         children: [
-          { type: 'item', level: 3, link: '/Page1', index: 'Page1', name: '分析页' },
-          { type: 'item', level: 3, link: '/Page2', index: 'Page2', name: '监控页' },
+          { type: 'item', level: 3, link: '/Analysis', index: 'Analysis', name: '分析页' },
+          { type: 'item', level: 3, link: '/Monitor', index: 'Monitor', name: '监控页' },
         ]
       }, {
         type: 'group',
@@ -68,9 +68,9 @@ const RootStore = types.model("RootStore", {
     }]
   }),
 
-  page1: types.optional(Page1Store, {}),
-  page2: types.optional(Page2Store, {}),
   formExample: types.optional(FormExampleStore, {}),
+  analysis: types.optional(AnalysisStore, {}),
+  monitor: types.optional(MonitorStore, {}),
   //{pageStore}//
 });
 

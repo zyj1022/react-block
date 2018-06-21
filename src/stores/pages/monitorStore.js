@@ -46,7 +46,7 @@ const Summary = types.model("Summary", {
   userCountMOM: 0
 });
 
-const Page2Store = types.model("Page2Store", {
+const MonitorStore = types.model("MonitorStore", {
     summaryData: types.optional(Summary, () => {
       return {
         gmv: 0,
@@ -89,7 +89,7 @@ const Page2Store = types.model("Page2Store", {
     return {
       getSummaryData() {
         return fetchData(
-            `${__HOST}/page2/getSummaryData`,
+            `${__HOST}/monitor/getSummaryData`,
             self.setSummaryData,
             null, { method: 'get' })
           .catch((ex) => {
@@ -137,7 +137,7 @@ const Page2Store = types.model("Page2Store", {
       },
       getGrowthData(params) {
         return fetchData(
-            `${__HOST}/page2/growthData`,
+            `${__HOST}/monitor/growthData`,
             self.setGrowthData,
             params, { method: 'get' })
           .catch((ex) => {
@@ -175,7 +175,7 @@ const Page2Store = types.model("Page2Store", {
       },
       getSubCategoryData(params) {
         return fetchData(
-            `${__HOST}/page2/getSubCategoryData`,
+            `${__HOST}/monitor/getSubCategoryData`,
             self.setSubCategoryData,
             params, { method: 'get' })
           .catch((ex) => {
@@ -202,7 +202,7 @@ const Page2Store = types.model("Page2Store", {
       },
       getBarSubCategoryData(params) {
         return fetchData(
-            `${__HOST}/page2/getBarSubCategoryData`,
+            `${__HOST}/monitor/getBarSubCategoryData`,
             self.setBarSubCategoryData,
             params, { method: 'get' })
           .catch((ex) => {
@@ -225,7 +225,7 @@ const Page2Store = types.model("Page2Store", {
       },
       getTableSubCategoryData(params) {
         return fetchData(
-            `${__HOST}/page2/getTableSubCategoryData`,
+            `${__HOST}/monitor/getTableSubCategoryData`,
             self.setTableSubCategoryData,
             params, { method: 'get' })
           .catch((ex) => {
@@ -242,7 +242,7 @@ const Page2Store = types.model("Page2Store", {
       },
       getBrandCompareList(params) {
         return fetchData(
-            `${__HOST}/page2/getBrandCompareList`,
+            `${__HOST}/monitor/getBrandCompareList`,
             self.setBrandCompareList,
             params, { method: 'get' })
           .catch((ex) => {
@@ -286,7 +286,7 @@ const Page2Store = types.model("Page2Store", {
       },
       getBrandCompareItemForCategory(params) {
         return fetchData(
-            `${__HOST}/page2/getBrandCompareItemForCategory`,
+            `${__HOST}/monitor/getBrandCompareItemForCategory`,
             self.setBrandCompareItemForCategory,
             params, { method: 'get' })
           .catch((ex) => {
@@ -332,4 +332,4 @@ const Page2Store = types.model("Page2Store", {
     }
   });
 
-export default Page2Store;
+export default MonitorStore;

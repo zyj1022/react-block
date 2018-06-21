@@ -16,7 +16,7 @@ app.use(bodyParser.json());
 
 //设置跨域访问
 app.all('*', function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "http://localhost:8088");
+  res.header("Access-Control-Allow-Origin", "http://localhost:8000");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   res.header('Access-Control-Allow-Credentials', true);
   res.header("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS");
@@ -31,6 +31,12 @@ app.use('/page1', page1);
 
 const page2 = require('./routes/page2');
 app.use('/page2', page2);
+
+const analysis = require('./routes/analysis');
+app.use('/analysis', analysis);
+
+const monitor = require('./routes/monitor');
+app.use('/monitor', monitor);
 
 //{pages}//
 
@@ -76,7 +82,7 @@ app.post('/common/getCurrentUserInfo', function(req, res) {
 });
 
 app.get('/common/logout', function(req, res) {
-  res.redirect('http://localhost:8088/dist/web/home.html');
+  res.redirect('http://localhost:8000/dist/web/home.html');
 });
 
 let server = app.listen(8090, function() {
