@@ -36,6 +36,9 @@ import { Bar, Pie, Footer } from '../../block';
  }
 ```
 
+# 功能组件
+- 引入 styled-component
+
 # 计划开发的组件
 - [ ] 数据展示类型
   - [ ] 实时数据统计展示
@@ -49,9 +52,9 @@ import { Bar, Pie, Footer } from '../../block';
   - [x] 饼状图
   - [x] 柱状图
   - [x] 折线图
-  - [ ] 面积图
-  - [ ] 雷达图
-  - [ ] 环形图
+  - [x] 面积图
+  - [x] 雷达图
+  - [x] 环形图
 - [x] [页脚版权信息]
 
 ……more

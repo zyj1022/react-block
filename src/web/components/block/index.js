@@ -1,5 +1,17 @@
-export { default as Footer } from "./NormalFooter";
-export { default as Bar } from "./ChartBar";
-export { default as Pie } from "./ChartPie";
-export { default as Line } from "./ChartLine";
-export { default as ChartCard } from "./ChartCard";
+import Footer from './NormalFooter';
+import Bar from './ChartBar';
+import Pie from './ChartPie';
+import Line from './ChartLine';
+import BaseArea from './ChartBaseArea';
+import ChartCard from './ChartCard';
+import Radar from './ChartRadar';
+
+export {
+  Footer,
+  Bar,
+  Pie,
+  Line,
+  ChartCard,
+  BaseArea,
+  Radar,
+}

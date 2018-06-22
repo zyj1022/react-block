@@ -1,30 +1,34 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 
 import {Row, Col} from '../styled-grid';
-import {Wrapper, Title} from './styled';
+import {Card, CardHeader, CardBody} from './styled';
+
+const ItemGroup = (props) => {
+   return (
+     <Col col={props.col}>
+       <Card>
+         <CardBody bgColor={props.bgColor}>
+
+         </CardBody>
+       </Card>
+     </Col>
+   )
+ }
 
 class ChartCard extends Component {
 
+  componentDidMount() {
+    
+  }
+
   render() {
-    const { title } = this.props;
+    const {title} = this.props;
     return (
       <Row>
-        <Col col='3' pull='3'>
-          <Wrapper>
-            <Title>
-               11
-            </Title>
-          </Wrapper>
-        </Col>
-        <Col col='3' pull='3'>
-22
-        </Col>
-        <Col col='3' pull='3'>
-33
-        </Col>
-        <Col col='3' pull='3'>
-44
-        </Col>
+        <ItemGroup col='3' bgColor='#9fe0f5'/>
+        <ItemGroup col='3' bgColor='#9fd96b'/>
+        <ItemGroup col='3' bgColor='#f1d675'/>
+        <ItemGroup col='3' bgColor='#7c72d8'/>
       </Row>
     );
   }

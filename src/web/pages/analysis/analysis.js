@@ -18,9 +18,8 @@ import Notification from 'flarej/lib/components/antd/notification';
 import styles from './analysis.m.scss';
 import tmpls from './analysis.t.html';
 
-import graphic from 'echarts/lib/util/graphic.js';
-
-import { Bar, Pie, Line, Footer, ChartCard } from '../../components/block';
+import { Bar, Pie, Line, Footer, BaseArea,
+  ChartCard, Radar } from '../../components/block';
 
 // 页面容器组件
 @registerTmpl('Analysis')
@@ -217,6 +216,64 @@ export default class Analysis extends Component {
     ]
   }
 
+  @computed get baseAreaData() {
+    return [
+      {
+          name: '属性1',
+          data: toJS(this.props.store.monitor.salesRatesData && this.props.store.monitor.salesRatesData[0].map(item => (item * 100).toFixed(2))),
+          type: 'line',
+          smooth: true,
+          areaStyle: {}
+      },
+      {
+          name: '属性2',
+          data: toJS(this.props.store.monitor.salesRatesData && this.props.store.monitor.salesRatesData[1].map(item => (item * 100).toFixed(2))),
+          type: 'line',
+          smooth: true,
+          areaStyle: {}
+      }
+    ]
+  }
+
+  @computed get radarData() {
+    return [{
+        type: 'radar',
+        // areaStyle: {normal: {}},
+        data : [
+            {
+                value : [4300, 10000, 28000, 35000, 50000, 19000],
+                name : '属性1'
+            },
+             {
+                value : [5000, 14000, 28000, 31000, 42000, 21000],
+                name : '属性2'
+            }
+        ]
+    }]
+  }
+
+  @computed get radar() {
+    return {
+        // shape: 'circle',
+        name: {
+            textStyle: {
+              color: '#fff',
+              backgroundColor: '#7ac6ff',
+              borderRadius: 3,
+              padding: [3, 5]
+           }
+        },
+        indicator: [
+           { name: '销售', max: 6500},
+           { name: '管理', max: 16000},
+           { name: '信息技术', max: 30000},
+           { name: '客服', max: 38000},
+           { name: '研发', max: 52000},
+           { name: '市场', max: 25000}
+        ]
+    }
+}
+
   render() {
     const { store: { analysis, monitor } } = this.props;
     return tmpls.container(this.props, this, {
@@ -229,6 +286,9 @@ export default class Analysis extends Component {
       lineXAxis: toJS(monitor.salesRatesData && monitor.salesRatesData[2]),
       pieCircleLegend: ['直接访问','邮件营销','联盟广告','视频广告','搜索引擎'],
       ChartCard,
+      baseAreaLegend: ['属性1', '属性2'],
+      baseAreaXAxis: toJS(monitor.barSubCategoryData && monitor.barSubCategoryData[2]),
+      radarLegend: ['属性1', '属性2']
     });
   }
 }

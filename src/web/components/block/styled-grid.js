@@ -1,5 +1,17 @@
 import styled, { css } from 'styled-components';
 
+/*--------------------------------------------------
+Button
+Card
+CardBody
+CardHeader
+CardFooter
+CardGroup
+CardTitle
+Row
+Col
+--------------------------------------------------*/
+
 export const Container = styled.div `
   padding-right: 10px;
   padding-left: 10px;
@@ -86,9 +98,7 @@ export const Col = styled.div `
   float: left;
   width: ${props => (props.col / columns) * 100}%;
   ${media.phone`width: ${props => ((props.sm ? props.sm : props.col) / columns) * 100}%;`}
-  ${media.desktop`
-      width: ${props => ((props.md ? props.md : props.col) / columns) * 100}%;
-    `}
+  ${media.desktop`width: ${props => ((props.md ? props.md : props.col) / columns) * 100}%;`}
   ${media.tablet`width: ${props => ((props.hd ? props.hd : props.col) / columns) * 100}%;`}
   ${media.large`width: ${props => ((props.lg ? props.lg : props.col) / columns) * 100}%;`}
 `
