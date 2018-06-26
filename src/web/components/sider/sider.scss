@@ -1,9 +1,9 @@
 .bm-menu-wrap {
   z-index: 102 !important;
-  margin-top:59px;
+  box-shadow: 1px 0 20px rgba(0,0,0,.08);
 }
 .site-logo{
-  background:#3bbabb;
+  background:#222b3c;
   height:60px;
   line-height:60px;
   font-size:18px;
@@ -14,24 +14,25 @@
   top: 0;
   left: 0;
 }
+.site-theme {
+  background: #ebedf2;
+}
 .site-menu-tit{
-  text-align: center;
-  height:10px;
-  line-height:10px;
-  color:#fff;
-  font-size: 1rem;
-  font-weight: bold;
-  // border-bottom:1px solid #4e5169;
+  height:60px;
+  line-height:60px;
+  color:#cfd0d0;
+  padding-left:30px;
+  border-bottom:1px solid #4e5169;
   position: absolute;
-  top: 0;
+  top: 60px;
   left: 0;
   width: 100%;
-  background: #434D62;
+  background: #1b3149;
 }
 .site-menu-cnt{
   height:100%;
   overflow:auto;
-  padding-top:0px;
+  padding-top:60px;
 }
 
 /* Position and sizing of burger button */
@@ -68,7 +69,7 @@
 
 /* General sidebar styles */
 .bm-menu {
-  background: #242433;
+  // background: #3f4d67;
   font-size: 14px;
 }
 
@@ -80,25 +81,18 @@
 /* Wrapper for item list */
 .bm-item-list {
   color: #dddde8;
-  a{
+  a {
     color: #dddde8;
     display:block;
     font-size: 14px;
-    height: 48px;
-    line-height: 48px;
+    height: 42px;
+    line-height: 42px;
     transition: all .5s;
-    padding-left: 54px;
+    padding-left: 50px;
     font-size: 12px;
-    &:hover{
-      text-decoration: none;
-      color:#fff;
-      background: #0e0e16;
-    }
+    text-decoration: none;
   }
-  a.cur{
-    color:#fff;
-    background: #0e0e16;
-  }
+
   .menu-group{ cursor: pointer; }
 
   .menu-link-item{
@@ -113,8 +107,7 @@
     background: none;
     &:hover{
       text-decoration: none;
-      color:#fff;
-      background: #0e0e16;
+
     }
     &:after {
       content:'';
@@ -126,14 +119,13 @@
 
   .menu-tit{
     border-bottom:0;
-    color: #dddde8;
     padding:.2rem;
-    padding:17px 30px;
+    padding:12px 30px;
     transition: all .5s;
     &:hover{
       text-decoration: none;
       color:#fff;
-      background: #0e0e16;
+      background: #2b3953;
     }
     &:after {
       content:'';
@@ -152,6 +144,49 @@
     background-repeat: no-repeat;
   }
 
+  .dark-theme {
+    background: #3f4d67;
+    color: #dddde8;
+    a {
+      border-left:5px solid #3f4d67;
+      &:hover {
+        color:#fff;
+        background: #2b3953;
+        border-left:5px solid #2b3953;
+      }
+    }
+    a.cur {
+      color:#fff;
+      background: #2b3953;
+      border-left:5px solid #2b3953;
+    }
+  }
+  .white-theme {
+    background: #fff;
+    color: #222b3c;
+    a { color: #222b3c;
+      border-left:5px solid #fff;
+      &:hover {
+        color:#0e0e16;
+        background: #ebedf2;
+        border-left:5px solid #ebedf2;
+      }
+    }
+
+    a.cur {
+      color:#0e0e16;
+      background: #ebedf2;
+      border-left:5px solid #ebedf2;
+    }
+
+    .menu-tit{
+      &:hover{
+        color:#222b3c;
+        background: #fff;
+      }
+    }
+  }
+
 }
 
 
@@ -164,7 +199,8 @@
     border-bottom:0;
   }
 }
-.menu-cnt.expanded{
+.menu-cnt.expanded + .menu-tit{
+  background: #ccc;
 }
 /* Styling of overlay */
 .bm-overlay {

@@ -1,0 +1,57 @@
+.theme {
+  background: #fff;
+  position: fixed;
+  height: 100%;
+  width: 200px;
+  top:0;
+  right:-200px;
+  z-index: 999;
+  box-shadow: 5px 1px 40px rgba(0,0,0,.1);
+  transition: all .3s ease;
+}
+.showTheme {
+  right:0
+}
+.setHeader {
+  height:60px;
+  background: #7c72d8;
+  width: 100%;
+  padding: 10px 20px;
+  line-height: 40px;
+  color:#fff;
+
+  .btnClose {
+    float:right;
+    font-size:20px;
+    color: #fff;
+  }
+
+}
+.setBody {
+  padding: 20px;
+  .topBar {
+    overflow: hidden;
+    h2 {margin-bottom: 10px;}
+    ul {width:200px;overflow: hidden;zoom:1;}
+    li {
+      float:left;
+      display: block;
+      a {
+        background: #222b3c;
+        width:45px;
+        height:45px;
+        margin:0 10px 5px 0;
+        display: inline-block;
+      }
+    }
+  }
+  .sideBar {
+
+    li {
+      a {
+        background: #fff;
+        border:1px solid #d7dbe2;
+      }
+    }
+  }
+}

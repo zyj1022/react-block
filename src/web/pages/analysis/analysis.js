@@ -19,7 +19,7 @@ import styles from './analysis.m.scss';
 import tmpls from './analysis.t.html';
 
 import { Bar, Pie, Line, Footer, BaseArea,
-  ChartCard, Radar } from '../../components/block';
+  ChartCard, Radar, Theme } from '../../components/block';
 
 // 页面容器组件
 @registerTmpl('Analysis')

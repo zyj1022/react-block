@@ -1,0 +1,32 @@
+<template name="theme">
+  <div class="{styles.theme} {store.common.settingPannel ?(styles.showTheme, '')}">
+      <div class="{styles.setHeader}">
+          设置面板
+          <a class="{styles.btnClose}" onClick={closeSetting}>
+             <ant-Icon type="close" />
+          </a>
+      </div>
+      <div class="{styles.setBody}">
+          <div class="{styles.topBar}">
+              <h2>Header color</h2>
+              <ul>
+                <#each {skin}>
+                  <li key={@index}>
+                      <a data-index={@index} href="javascript:;" onClick={changeTopBar} style="background:{this};"></a>
+                  </li>
+                </#each>
+              </ul>
+          </div>
+          <div class="{styles.topBar} {styles.sideBar}">
+              <h2>Sider color</h2>
+              <ul>
+                <#each {sideSkin}>
+                  <li key={@index}>
+                      <a data-index={@index} href="javascript:;" onClick={changeSideBar} style="background:{this};"></a>
+                  </li>
+                </#each>
+              </ul>
+          </div>
+      </div>
+  </div>
+</template>

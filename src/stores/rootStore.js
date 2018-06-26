@@ -30,14 +30,14 @@ const RootStore = types.model("RootStore", {
         children: [
           { type: 'item', level: 3, link: '/Analysis', index: 'Analysis', name: '分析页' },
           { type: 'item', level: 3, link: '/Monitor', index: 'Monitor', name: '监控页' },
+          { type: 'item', level: 3, link: '/FormExample', index: 'FormExample', name: '表单页' },
         ]
       }, {
         type: 'group',
         index: 'Menu2_2',
-        name: '列表',
+        name: 'Components',
         expanded: false,
         children: [
-          { type: 'item', level: 3, link: '/FormExample', index: 'FormExample', name: '页面3' },
           { type: 'item', level: 3, link: '/Page4', index: 'Page4', name: '页面4' },
         ]
       }]

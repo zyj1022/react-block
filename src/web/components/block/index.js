@@ -1,3 +1,4 @@
+import Theme from './Theme';
 import Footer from './NormalFooter';
 import Bar from './ChartBar';
 import Pie from './ChartPie';
@@ -7,6 +8,7 @@ import ChartCard from './ChartCard';
 import Radar from './ChartRadar';
 
 export {
+  Theme,
   Footer,
   Bar,
   Pie,

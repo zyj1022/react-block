@@ -10,6 +10,8 @@ a.btn-link:hover {color:$gray-0;}
   // background-color: #F8F7F4;
   padding: 80px 20px 20px;
   min-width: 1200px;
+  overflow: hidden;
+  position: relative;
 
   .ant-table-thead > tr > th {
     text-align: center;

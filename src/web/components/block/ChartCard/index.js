@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {registerComponent} from 'nornj';
 
 import {Row, Col} from '../styled-grid';
 import {Card, CardHeader, CardBody} from './styled';
@@ -18,7 +19,7 @@ const ItemGroup = (props) => {
 class ChartCard extends Component {
 
   componentDidMount() {
-    
+
   }
 
   render() {
@@ -36,3 +37,5 @@ class ChartCard extends Component {
 }
 
 export default ChartCard;
+
+registerComponent({'wee-ChartCard': ChartCard});

@@ -9,6 +9,10 @@ export const UserInfo = types.model('UserInfo', {
 
 export const CommonStore = types.model("CommonStore", {
     userInfo: types.maybe(UserInfo),
+    settingPannel: true,
+    topBarColorIndex: types.maybe(types.number),
+    sideColorIndex: types.maybe(types.number),
+    topBarColor: '#222b3c'
   })
   .views(self => {
     return {
@@ -19,6 +23,15 @@ export const CommonStore = types.model("CommonStore", {
   })
   .actions(self => {
     return {
+      setSettingPannel(value) {
+        self.settingPannel = value
+      },
+      setTopBarColor(value) {
+        self.topBarColorIndex = value;
+      },
+      setSideColor(value) {
+        self.sideColorIndex = value;
+      },
       getCurrentUserInfo() {
         return fetchData(`${__HOST}/common/getCurrentUserInfo`,
           self.setCurrentUserInfo,
