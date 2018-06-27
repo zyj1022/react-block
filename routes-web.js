@@ -81,7 +81,7 @@ const PageWrap = inject('store')(
     <div>
       <${SiderWithRouter}/>
       <${HeaderWithRouter}/>
-      <div id='page-wrap' className=${store.sider.isOpen ? 'isMenuOpen' : ''}>
+    <div id='page-wrap' className="${store.sider.isOpen ? 'isMenuOpen' : ''}">
         ${children}
       </div>
     </div>

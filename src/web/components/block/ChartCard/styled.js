@@ -14,7 +14,6 @@ export const CardHeader = styled.div `
 export const CardBody = styled.div `
   padding: 10px;
   background: ${props => props.bgColor ? props.bgColor : '#fff'};
-  border-radius: 5px;
   min-height:160px
 `;
 

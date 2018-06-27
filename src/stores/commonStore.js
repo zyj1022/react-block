@@ -12,7 +12,8 @@ export const CommonStore = types.model("CommonStore", {
     settingPannel: true,
     topBarColorIndex: types.maybe(types.number),
     sideColorIndex: types.maybe(types.number),
-    topBarColor: '#222b3c'
+    topBarColor: '#222b3c',
+    theme: types.maybe(types.string),
   })
   .views(self => {
     return {
@@ -31,6 +32,9 @@ export const CommonStore = types.model("CommonStore", {
       },
       setSideColor(value) {
         self.sideColorIndex = value;
+      },
+      setTheme(value) {
+        self.theme = value;
       },
       getCurrentUserInfo() {
         return fetchData(`${__HOST}/common/getCurrentUserInfo`,

@@ -40,6 +40,7 @@ import { Bar, Pie, Footer } from '../../block';
 - 引入 styled-component
 
 # 计划开发的组件
+- [x] 皮肤切换功能
 - [ ] 数据展示类型
   - [ ] 实时数据统计展示
   - [ ] 环形进度条展示

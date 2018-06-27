@@ -28,8 +28,15 @@ class Theme extends Component {
  @autobind
  changeSideBar(e) {
    const index = parseInt(e.target.getAttribute("data-index"))
-   this.props.store.common.setSideColor(index)
+   this.props.store.common.setSideColor(index);
    cookie.set('sideBarColor', index)
+ }
+
+ @autobind
+ changePageTheme(e) {
+   const index = parseInt(e.target.getAttribute("data-index"))
+   this.props.store.common.setTheme(index===0 ? 'dark' : 'white');
+   cookie.set('themeColor', index===0 ? 'dark' : 'white')
  }
 
  @autobind

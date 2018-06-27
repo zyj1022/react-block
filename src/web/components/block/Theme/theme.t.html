@@ -27,6 +27,16 @@
                 </#each>
               </ul>
           </div>
+          <div class="{styles.topBar} {styles.sideBar}">
+              <h2>Page color</h2>
+              <ul>
+                <#each {sideSkin}>
+                  <li key={@index}>
+                      <a data-index={@index} href="javascript:;" onClick={changePageTheme} style="background:{this};"></a>
+                  </li>
+                </#each>
+              </ul>
+          </div>
       </div>
   </div>
 </template>

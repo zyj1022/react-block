@@ -1,6 +1,6 @@
 <template name="container">
-  <div class="pageMod">
 
+  <div class="pageMod {theme === 'dark' ? ('dark-theme', '')}">
   <!-- <div class="queryForm">
   <div class="queryTitle">
      <h2><ant-Icon type="search" /> <span>查询条件</span></h2>
@@ -31,22 +31,22 @@
     <div class="row">
        <ul>
           <li class="col-6">
-             <ec-Bar xAxis="{barXAxis}" legend="{barLegend}" data="{barData}" />
+             <ec-Bar xAxis="{barXAxis}" legend="{barLegend}" data="{barData}" {theme} />
           </li>
           <li class="col-6">
-             <ec-Line xAxis="{lineXAxis}" legend="{lineLegend}" data="{lineData}" />
+             <ec-Line xAxis="{lineXAxis}" legend="{lineLegend}" data="{lineData}" {theme} />
           </li>
           <li class="col-6">
-             <ec-Pie legend="{pieCircleLegend}" data="{pieCircleData}" />
+             <ec-Pie legend="{pieCircleLegend}" data="{pieCircleData}" {theme} />
           </li>
           <li class="col-6">
-             <ec-Pie legend="{pieLegend}" data="{pieData}" />
+             <ec-Pie legend="{pieLegend}" data="{pieData}" {theme} />
           </li>
           <li class="col-6">
-             <ec-Line xAxis="{baseAreaXAxis}" legend="{baseAreaLegend}" data="{baseAreaData}" />
+             <ec-Line xAxis="{baseAreaXAxis}" legend="{baseAreaLegend}" data="{baseAreaData}" {theme} />
           </li>
           <li class="col-6">
-             <ec-Radar radar="{radar}" legend="{radarLegend}" data="{radarData}" />
+             <ec-Radar radar="{radar}" legend="{radarLegend}" data="{radarData}" {theme} />
           </li>
        </ul>
     </div>

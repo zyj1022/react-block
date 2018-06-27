@@ -56,6 +56,21 @@ a.btn-link:hover {color:$gray-0;}
 
 }
 
+// ------ Dark-theme ------
+.dark-theme {
+  background: $color-pageWrap-bg;
+  .wrapMod {
+    background: $color-wrapMod-bg;
+  }
+  .titleMod {
+    h2 {color:#fff;}
+    border-color: #37393D;
+  }
+  .zk-footer {
+    color:$color-pageText;
+  }
+}
+
 // ------- 通用布局 -----
 
 .tableWrap {

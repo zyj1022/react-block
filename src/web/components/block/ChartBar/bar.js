@@ -15,7 +15,7 @@ import * as chart from '../chartConfig';
 @registerTmpl('Bar')
 class Bar extends Component {
   render() {
-    const { refName, xAxis, legend, data } = this.props;
+    const { refName, xAxis, legend, data, theme} = this.props;
     return tmpls.bar(this.props, this, {
       optionConfig: {
         color: chart.colors,
@@ -30,7 +30,10 @@ class Bar extends Component {
           show: true,
           left: 'center',
           top: 0,
-          data: legend
+          data: legend,
+          textStyle: {
+            color: theme && theme==='dark' ? '#e4e7ea' : '#333'
+          }
         },
         tooltip: {
           show: true,
@@ -43,7 +46,7 @@ class Bar extends Component {
           splitLine: {
             show: true,
             lineStyle: {
-              color: '#e5e5e5'
+              color: theme==='white' ? '#e5e5e5' : '#e4e7ea'
             }
           },
           axisLine: {

@@ -30,18 +30,10 @@ export default class Header extends Component {
     this.props.store.common.setSettingPannel(true);
   }
 
-  getBgColor() {
+  render() {
     const cookieColor = cookie.get('topBarColor') ? cookie.get('topBarColor') : skin.colors[0];
     const skinColor = skin.colors[this.props.store.common.topBarColorIndex];
-    if(cookieColor === skinColor) {
-      return cookieColor;
-    } else {
-      return skinColor;
-    }
-  }
 
-  render() {
-    this.getBgColor();
     const bgColor = cookie.get('topBarColor') ? cookie.get('topBarColor') : skin.colors[this.props.store.common.topBarColorIndex];
     return template(this.state, this.props, this, {
       styles,

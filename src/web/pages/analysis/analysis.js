@@ -5,6 +5,7 @@ import { observer, inject } from 'mobx-react';
 import nj from 'nornj';
 import { registerTmpl } from 'nornj-react';
 import { autobind } from 'core-decorators';
+import cookie from 'js-cookie';
 
 import 'flarej/lib/components/antd/input';
 import 'flarej/lib/components/antd/button';
@@ -15,7 +16,7 @@ import 'flarej/lib/components/antd/cascader';
 import Message from 'flarej/lib/components/antd/message';
 import Notification from 'flarej/lib/components/antd/notification';
 
-import styles from './analysis.m.scss';
+// import styles from './analysis.m.scss';
 import tmpls from './analysis.t.html';
 
 import { Bar, Pie, Line, Footer, BaseArea,
@@ -272,13 +273,16 @@ export default class Analysis extends Component {
            { name: '市场', max: 25000}
         ]
     }
-}
+  }
 
   render() {
-    const { store: { analysis, monitor } } = this.props;
+    const { store: { analysis, monitor, common } } = this.props;
+    const cookieColor = cookie.get('themeColor') ? cookie.get('themeColor') : 'white';
+    const skinColor = this.props.store.common.theme;
+
     return tmpls.container(this.props, this, {
-      styles,
       analysis,
+      theme: cookie.get('themeColor') ? cookie.get('themeColor') : 'white',
       barXAxis: toJS(monitor.barSubCategoryData && monitor.barSubCategoryData[2]),
       barLegend: ['属性1', '属性2'],
       pieLegend: toJS(monitor.pieSubCategoryData && monitor.pieSubCategoryData[2]),

@@ -2,7 +2,7 @@
   <#if {item.type == 'item'}>
     <router-Link key={item.index} to={item.link} onClick={selectMenu(item.index)}
         class="menu-item {store.sider.current.toLowerCase() == item.index.toLowerCase() ? ('cur', '')}"
-        style="border-color:{store.sider.current.toLowerCase() == item.index.toLowerCase() ? (bgColor, '')}">
+        style="border-color:{store.sider.current.toLowerCase() == item.index.toLowerCase() ? (bgColor, '')};">
       {item.name}
     </router-Link>
     <#elseif {item.type == 'group'}>
@@ -18,7 +18,10 @@
 
 <template name="menu">
   <burger-Menu pageWrapId="page-wrap" outerContainerId="outer-container" onStateChange={isMenuOpen} isOpen={store.sider.isOpen} width={200} noOverlay>
-    <div class="site-logo {logoBg}"></div>
+    <div class="site-logo {logoBg}">
+       <span class="logo"></span>
+       <span class="title">CODEFFE</span>
+    </div>
     <!-- <div class="site-menu-tit"></div> -->
     <div class="site-menu-cnt {sideType}">
       {menuCnt}

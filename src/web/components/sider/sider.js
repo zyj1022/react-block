@@ -45,21 +45,11 @@ export default class Sider extends Component {
   getBgColorIndex() {
     const cookieIndex = cookie.get('sideBarColor') ? cookie.get('sideBarColor') : 0;
     const skinIndex = this.props.store.common.sideColorIndex;
-    if(cookieIndex === skinIndex) {
-      return cookieIndex;
-    } else {
-      return skinIndex;
-    }
   }
 
   getBgColor() {
     const cookieColor = cookie.get('topBarColor') ? cookie.get('topBarColor') : skin.colors[0];
     const skinColor = skin.colors[this.props.store.common.topBarColorIndex];
-    if(cookieColor === skinColor) {
-      return cookieColor;
-    } else {
-      return skinColor;
-    }
   }
 
   render() {
@@ -71,7 +61,6 @@ export default class Sider extends Component {
     const cookieIndex = cookie.get('sideBarColor') ? cookie.get('sideBarColor') : 0;
     const sideType = cookieIndex > 0 ? 'white-theme' : 'dark-theme'
     const logoBg = cookieIndex > 0 ? 'site-theme' : ''
-    console.log('bgColor', bgColor);
 
     const generateMenu = items => {
       return items.map(item => {
