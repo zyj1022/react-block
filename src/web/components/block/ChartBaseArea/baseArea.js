@@ -13,10 +13,10 @@ import * as chart from '../chartConfig';
 @registerTmpl('BaseArea')
 class BaseArea extends Component {
   render() {
-    const { refName, xAxis, legend, data } = this.props;
+    const { refName, xAxis, legend, data, theme } = this.props;
     return tmpls.baseArea(this.props, this, {
       optionConfig: {
-        color: chart.colors,
+        color: theme && theme==='dark' ? chart.darkColors : chart.colors,
         grid: {
           left: '3%',
           right: '4%',
@@ -28,7 +28,10 @@ class BaseArea extends Component {
           show: true,
           left: 'center',
           top: 0,
-          data: legend
+          data: legend,
+          textStyle: {
+            color: theme && theme==='dark' ? chart.darkTextStyle : chart.whiteTextStyle
+          }
         },
         tooltip: {
           show: true,
@@ -41,17 +44,17 @@ class BaseArea extends Component {
           splitLine: {
             show: true,
             lineStyle: {
-              color: '#e5e5e5'
+              color: theme && theme==='dark' ? chart.darkLineStyle : chart.whiteLineStyle
             }
           },
           axisLine: {
             lineStyle: {
-              color: '#e5e5e5'
+              color: theme && theme==='dark' ? chart.darkLineStyle : chart.whiteLineStyle
             }
           },
           axisLabel: {
             textStyle: {
-              color: '#333'
+              color: theme && theme==='dark' ? chart.darkTextStyle : chart.whiteTextStyle
             },
             rotate: 30,
             interval: 0

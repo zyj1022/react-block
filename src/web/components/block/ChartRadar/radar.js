@@ -13,10 +13,10 @@ import * as chart from '../chartConfig';
 @registerTmpl('Radar')
 class Radar extends Component {
   render() {
-    const { refName, radar, legend, data } = this.props;
+    const { refName, radar, legend, data, theme } = this.props;
     return tmpls.radar(this.props, this, {
       optionConfig: {
-        color: chart.colors,
+        color: theme && theme==='dark' ? chart.darkColors : chart.colors,
         grid: {
           left: '3%',
           right: '4%',
@@ -28,14 +28,43 @@ class Radar extends Component {
           show: true,
           left: 'center',
           top: 0,
-          data: legend
+          data: legend,
+          textStyle: {
+            color: theme && theme==='dark' ? chart.darkTextStyle : chart.whiteTextStyle
+          }
         },
         tooltip: {
           show: true,
           trigger: 'axis'
         },
         toolbox: { show: false },
-        radar: radar
+        radar: {
+          name: {
+              textStyle: {
+                color: theme && theme==='dark' ? chart.darkTextStyle : chart.whiteTextStyle,
+             }
+          },
+          splitLine: {
+            show: true,
+            lineStyle: {
+              color: theme && theme==='dark' ? chart.darkLineStyle : chart.whiteLineStyle
+            }
+          },
+          axisLine: {
+            lineStyle: {
+              color: theme && theme==='dark' ? chart.darkLineStyle : chart.whiteLineStyle
+            }
+          },
+          axisLabel: {
+            textStyle: {
+              color: theme && theme==='dark' ? chart.darkTextStyle : chart.whiteTextStyle
+            }
+          },
+          splitArea: {
+            show: false
+          },
+          indicator: radar
+        }
       }
     });
   }

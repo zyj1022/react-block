@@ -1,18 +1,6 @@
 // Fonts
 export const fontFamily = '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif'
 
-export const chartColors = [
-  '#7ac6ff',
-  '#9fd96b',
-  '#7c72d8',
-  '#f1d675',
-  '#9fe0f5',
-  '#43b596',
-  '#4b47a6'
-];
-export const chartLine = '';
-export const chartLegendText = '';
-
 // Colors
 export const white = '#fff'
 export const gray100 = '#f8f9fa'

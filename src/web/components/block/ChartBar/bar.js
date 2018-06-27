@@ -14,11 +14,13 @@ import * as chart from '../chartConfig';
 
 @registerTmpl('Bar')
 class Bar extends Component {
+
   render() {
     const { refName, xAxis, legend, data, theme} = this.props;
+
     return tmpls.bar(this.props, this, {
       optionConfig: {
-        color: chart.colors,
+        color: theme && theme==='dark' ? chart.darkColors : chart.colors,
         grid: {
           left: '3%',
           right: '4%',
@@ -32,7 +34,7 @@ class Bar extends Component {
           top: 0,
           data: legend,
           textStyle: {
-            color: theme && theme==='dark' ? '#e4e7ea' : '#333'
+            color: theme && theme==='dark' ? chart.darkTextStyle : chart.whiteTextStyle
           }
         },
         tooltip: {
@@ -46,17 +48,17 @@ class Bar extends Component {
           splitLine: {
             show: true,
             lineStyle: {
-              color: theme==='white' ? '#e5e5e5' : '#e4e7ea'
+              color: theme && theme==='dark' ? chart.darkLineStyle : chart.whiteLineStyle
             }
           },
           axisLine: {
             lineStyle: {
-              color: '#e5e5e5'
+              color: theme && theme==='dark' ? chart.darkLineStyle : chart.whiteLineStyle
             }
           },
           axisLabel: {
             textStyle: {
-              color: '#333'
+              color: theme && theme==='dark' ? chart.darkTextStyle : chart.whiteTextStyle
             },
             rotate: 30,
             interval: 0
@@ -69,17 +71,17 @@ class Bar extends Component {
           splitLine: {
             show: true,
             lineStyle: {
-              color: '#e5e5e5'
+              color: theme && theme==='dark' ? chart.darkLineStyle : chart.whiteLineStyle
             }
           },
           axisLine: {
             lineStyle: {
-              color: '#e5e5e5'
+              color: theme && theme==='dark' ? chart.darkLineStyle : chart.whiteLineStyle
             }
           },
           axisLabel: {
             textStyle: {
-              color: '#333'
+              color: theme && theme==='dark' ? chart.darkTextStyle : chart.whiteTextStyle
             },
             formatter: `{value}%`
           }

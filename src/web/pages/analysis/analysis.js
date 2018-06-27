@@ -254,25 +254,14 @@ export default class Analysis extends Component {
   }
 
   @computed get radar() {
-    return {
-        // shape: 'circle',
-        name: {
-            textStyle: {
-              color: '#fff',
-              backgroundColor: '#7ac6ff',
-              borderRadius: 3,
-              padding: [3, 5]
-           }
-        },
-        indicator: [
-           { name: '销售', max: 6500},
-           { name: '管理', max: 16000},
-           { name: '信息技术', max: 30000},
-           { name: '客服', max: 38000},
-           { name: '研发', max: 52000},
-           { name: '市场', max: 25000}
-        ]
-    }
+    return [
+         { name: '销售', max: 6500},
+         { name: '管理', max: 16000},
+         { name: '信息技术', max: 30000},
+         { name: '客服', max: 38000},
+         { name: '研发', max: 52000},
+         { name: '市场', max: 25000}
+      ]
   }
 
   render() {

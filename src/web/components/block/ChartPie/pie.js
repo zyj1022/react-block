@@ -12,10 +12,10 @@ import * as chart from '../chartConfig';
 @registerTmpl('Pie')
 class Pie extends Component {
   render() {
-    const { refName, title, legend, data } = this.props;
+    const { refName, title, legend, data, theme } = this.props;
     return tmpls.pie(this.props, this, {
       optionConfig: {
-        color: chart.colors,
+        color: theme && theme==='dark' ? chart.darkColors : chart.colors,
         grid: {
           left: '3%',
           right: '3%',
@@ -38,7 +38,10 @@ class Pie extends Component {
         toolbox: { show: false },
         legend: {
           left: 'center',
-          data: legend
+          data: legend,
+          textStyle: {
+            color: theme && theme==='dark' ? chart.darkTextStyle : chart.whiteTextStyle
+          }
         }
       }
     });
