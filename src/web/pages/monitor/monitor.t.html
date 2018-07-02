@@ -1,17 +1,13 @@
 <template name="monitor">
-  <div class="{styles.monitor}">
-    <div class="{styles.bePageCnt}">
-      <h2 class="{styles.pageTitle}">Summary</h2>
+  <div class="pageMod {styles.monitor} {theme === 'dark' ? ('dark-theme', '')}">
+    <div class="wrapMod ">
       <evalSummaryMonitor />
-
-      <h3 class="{styles.pageSubTitle}">Total Compare</h3>
       <totalCompareMonitor />
-      
       <categoryCompareMonitor />
-      
-      <h3 class="{styles.pageSubTitle}">Compare Dock</h3>
+      <div class="titleMod">
+          <h2><ant-Icon type="area-chart" /> <span>Compare Dock</span></h2>
+      </div>
       <brandCompareMonitor />
-
       <compareDockMonitor />
     </div>
   </div>
@@ -21,7 +17,7 @@
 <template name="evalSummary">
   <fj-Row class="{styles.summary} clearfix">
     <fj-Col l="3">
-      <div class="{styles.summaryItem}">
+      <div class="{styles.summaryItem}" style="background:#9fe0f5;">
         <div class="{styles.field}">指标1</div>
         <div class="{styles.num}">{monitor.summaryData.gmv / 10000 .('toFixed')(2)}万元</div>
         <div class="{styles.rates} clearfix">
@@ -37,7 +33,7 @@
       </div>
     </fj-Col>
     <fj-Col l="3">
-      <div class="{styles.summaryItem}">
+      <div class="{styles.summaryItem}" style="background:#9fd96b;">
         <div class="{styles.field}">指标2</div>
         <div class="{styles.num}">{monitor.summaryData.uv}</div>
         <div class="{styles.rates} clearfix">
@@ -53,7 +49,7 @@
       </div>
     </fj-Col>
     <fj-Col l="3">
-      <div class="{styles.summaryItem}">
+      <div class="{styles.summaryItem}" style="background:#f1d675;">
         <div class="{styles.field}">指标3</div>
         <div class="{styles.num}">{monitor.summaryData.uvRates}%</div>
         <div class="{styles.rates} clearfix">
@@ -69,7 +65,7 @@
       </div>
     </fj-Col>
     <fj-Col l="3">
-      <div class="{styles.summaryItem}">
+      <div class="{styles.summaryItem}" style="background:#7c72d8;">
         <div class="{styles.field}">指标4</div>
         <div class="{styles.num}">{monitor.summaryData.userCount}</div>
         <div class="{styles.rates} clearfix">
@@ -91,6 +87,9 @@
 <!--totalCompare:start-->
 <template name="totalCompare">
   <fj-Row class="{styles.totalCompare} clearfix">
+    <div class="titleMod">
+        <h2><ant-Icon type="area-chart" /> <span>图表展示</span></h2>
+    </div>
     <fj-Col l="6">
       <div class="{styles.leftBlock}">
         <div class="{styles.chartTit}">指标1趋势</div>
@@ -132,7 +131,7 @@
           <ant-RadioButton value="c">指标3</ant-RadioButton>
           <ant-RadioButton value="d">指标4</ant-RadioButton>
         </ant-RadioGroup>
-        <ec-LineChart ref="ecGrowth" option={toJS(growthOptions)} data={toJS(growthData)} update={true}/>            
+        <ec-LineChart ref="ecGrowth" option={toJS(growthOptions)} data={toJS(growthData)} update={true}/>
       </div>
     </fj-Col>
   </fj-Row>
@@ -142,21 +141,16 @@
 <!--categoryCompare：start-->
 <template name="categoryCompare">
   <div class="{styles.categoryCompareWrap}">
-    <h3 class="{styles.pageSubTitle}">
-      <div class="{styles.toolsBar} fr">
-      </div>
-      <span>Category Compare</span>
-    </h3>
+    <div class="titleMod">
+        <h2><ant-Icon type="area-chart" /> <span>Category Compare</span></h2>
+    </div>
+
     <#if {monitor.showSubCategoryBlock}>
       <div class="{styles.subCategoryBlock}">
         <fj-Row class="{styles.categoryCompare} {currentView == 1 ?(styles.showCategoryCompare,'')} clearfix" gutter="30" key={@index}>
           <fj-Col l="6">
             <div class="{styles.tit}">指标1占比分布对比</div>
             <ec-PieChart ref="ecPieCategory" option={toJS(pieCategoryOptions)} data={toJS(pieCategoryData)} update={true}/>
-            <fj-Row class="tc clearfix">
-              <fj-Col l="6">属性1</fj-Col>
-              <fj-Col l="6">属性2</fj-Col>
-            </fj-Row>
           </fj-Col>
           <fj-Col l="6">
             <div class="{styles.tit}">指标1增长率对比</div>
@@ -213,7 +207,7 @@
         </div>
       </div>
     </#if>
-    
+
   </div>
 </template>
 <!--categoryCompare：end-->
@@ -351,13 +345,16 @@
 <!--compareDock:start-->
 <template name="compareDock">
   <div class="{styles.compareDock} {store.monitor.compareDockVisible ?(styles.compareDockShow, '')}">
+    <div class="titleMod">
+        <h2><ant-Icon type="area-chart" /> <span>Category Dock</span></h2>
+    </div>
     <div class="{styles.compareDockTit}">
       <span class="{styles.compareDockClose}" onClick={closeCompareDock}>X</span>
       <span>Compare Dock</span>
     </div>
     <fj-Row class="clearfix">
       <#each {store.monitor.compareDockData}>
-        <#if {id != 0}>      
+        <#if {id != 0}>
         <fj-Col l="3" key="{@index}">
           <span class="{styles.iconDeleteCompareItem}" onClick={deleteCompareItem(this)}>X</span>
           <fj-Row class="clearfix">
@@ -373,8 +370,8 @@
         </#if>
       </#each>
       <fj-Col l="3" class="tc">
-        <ant-Button onClick={compareIt}>开始对比</ant-Button>        
-      </fj-Col>      
+        <ant-Button onClick={compareIt}>开始对比</ant-Button>
+      </fj-Col>
     </fj-Row>
   </div>
 </template>

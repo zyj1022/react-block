@@ -9,6 +9,7 @@ import loadMonitor from 'bundle-loader?lazy&name=[name]!./src/web/pages/monitor/
 //{importLoadPage}//
 import Header from './src/web/components/header';
 import Sider from './src/web/components/sider';
+import Theme from './src/web/components/block';
 
 const HeaderWithRouter = withRouter(Header);
 const SiderWithRouter = withRouter(Sider);
@@ -81,8 +82,9 @@ const PageWrap = inject('store')(
     <div>
       <${SiderWithRouter}/>
       <${HeaderWithRouter}/>
-    <div id='page-wrap' className="${store.sider.isOpen ? 'isMenuOpen' : ''}">
+      <div id='page-wrap' className="${store.sider.isOpen ? 'isMenuOpen' : ''}">
         ${children}
+        <Theme store="${store}"/>
       </div>
     </div>
   `()

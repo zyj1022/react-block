@@ -3,6 +3,8 @@ import { observable, computed, toJS } from 'mobx'
 import { observer, inject } from 'mobx-react';
 import nj from 'nornj';
 import { registerTmpl } from 'nornj-react';
+import cookie from 'js-cookie';
+
 import 'flarej/lib/components/antd/radio';
 import 'flarej/lib/components/antd/button';
 import 'flarej/lib/components/antd/cascader';
@@ -15,12 +17,15 @@ import 'echarts/lib/component/calendar';
 import 'flarej/lib/components/ECharts/barChart';
 import 'flarej/lib/components/ECharts/lineChart';
 import 'flarej/lib/components/ECharts/pieChart';
+
 import Message from 'flarej/lib/components/antd/message';
 import Notification from 'flarej/lib/components/antd/notification';
 import graphic from 'echarts/lib/util/graphic.js'
 import { autobind } from 'core-decorators';
 import styles from './monitor.m.scss';
 import tmpls from './monitor.t.html';
+
+import * as chart from '../../components/block/chartConfig';
 
 //页面容器组件
 @inject('store')
@@ -54,10 +59,14 @@ export default class Monitor extends Component {
   }
 
   render() {
-    const { store: { monitor } } = this.props;
+    const { store: { analysis, monitor, common } } = this.props;
+    const cookieColor = cookie.get('themeColor') ? cookie.get('themeColor') : 'white';
+    const skinColor = this.props.store.common.theme;
+
     return tmpls.monitor(this.state, this.props, this, {
       styles,
-      monitor
+      monitor,
+      theme: cookie.get('themeColor') ? cookie.get('themeColor') : 'white',
     });
   }
 }
@@ -101,6 +110,7 @@ class TotalCompare extends Component {
 
   @computed get salesOptions() {
     return {
+      color:chart.colors,
       grid: {
         left: '0',
         right: '4%',
@@ -197,6 +207,7 @@ class TotalCompare extends Component {
   @computed get salesRatesOptions() {
     console.log('salesRatesOptions', toJS(this.props.store.monitor.salesRatesData && this.props.store.monitor.salesRatesData[2]))
     return {
+      color:chart.colors,
       grid: {
         left: '3%',
         right: '4%',
@@ -312,6 +323,7 @@ class TotalCompare extends Component {
         break;
     }
     return {
+      color:chart.colors,
       grid: {
         left: '3%',
         right: '4%',
@@ -450,6 +462,7 @@ class CategoryCompare extends Component {
 
   @computed get pieCategoryOptions() {
     return {
+      color:chart.colors,
       grid: {
         left: '3%',
         right: '3%',
@@ -559,6 +572,7 @@ class CategoryCompare extends Component {
 
   @computed get barCategoryOptions() {
     return {
+      color:chart.colors,
       grid: {
         left: '3%',
         right: '4%',
@@ -690,6 +704,7 @@ class BrandCompare extends Component {
   @observable trendsChartDataX = [];
   @computed get trendsChartOptions() {
     return {
+      color:chart.colors,
       grid: {
         left: '3%',
         right: '4%',

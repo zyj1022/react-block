@@ -56,21 +56,6 @@ a.btn-link:hover {color:$gray-0;}
 
 }
 
-// ------ Dark-theme ------
-.dark-theme {
-  background: $color-pageWrap-bg;
-  .wrapMod {
-    background: $color-wrapMod-bg;
-  }
-  .titleMod {
-    h2 {color:#fff;}
-    border-color: #37393D;
-  }
-  .zk-footer {
-    color:$color-pageText;
-  }
-}
-
 // ------- 通用布局 -----
 
 .tableWrap {
@@ -149,4 +134,30 @@ a.btn-link:hover {color:$gray-0;}
   clear: both;
   display: table;
   content: "";
+}
+
+// ------ Dark-theme ------
+.dark-theme {
+  background: $color-pageWrap-bg;
+  .wrapMod {
+    background: $color-wrapMod-bg;
+  }
+  .titleMod {
+    h2 {color:#fff;}
+    border-color: #37393D;
+  }
+  .zk-footer {
+    color:$color-pageText;
+  }
+  .queryForm {
+    background: $color-wrapMod-bg;
+    color:$color-pageText;
+    .queryTitle {
+      border-color: #37393D;
+      h2 {color:#fff;}
+    }
+    .group {
+      border-color: #37393D;
+    }
+  }
 }

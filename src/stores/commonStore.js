@@ -9,7 +9,7 @@ export const UserInfo = types.model('UserInfo', {
 
 export const CommonStore = types.model("CommonStore", {
     userInfo: types.maybe(UserInfo),
-    settingPannel: true,
+    settingPannel: false,
     topBarColorIndex: types.maybe(types.number),
     sideColorIndex: types.maybe(types.number),
     topBarColor: '#222b3c',

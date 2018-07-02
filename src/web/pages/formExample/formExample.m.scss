@@ -1,6 +1,7 @@
-.formExample{
-  padding: 100px 100px 40px 30px;
-  background-color: #fff;
+@import '../../css/variables';
+
+.formExample {
+  padding: 20px 100px 40px 30px;
 
   h2 {
     margin-bottom: 25px;
@@ -9,7 +10,7 @@
 }
 
 .formEls {
-  padding: 5px 80px 20px 80px;
+  padding: 5px 80px 20px;
 }
 
 .btnArea {
@@ -18,6 +19,9 @@
   :global {
     .ant-btn {
       margin-right: 15px;
+    }
+    h2 {
+      color:$color-pageText;
     }
   }
 }

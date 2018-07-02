@@ -1,12 +1,16 @@
 <template name="container">
-  <div>
-    <fj-col l=6>
-      <AntForm />
-    </fj-col>
-    <fj-col l=6>
-      <!--Element-React的部分表单组件无法在ie9和ie10运行-->
-      <#unless {isIElt11}><ElForm /></#unless>
-    </fj-col>
+  <div class="pageMod {theme === 'dark' ? ('dark-theme', '')}">
+    <div class="wrapMod">
+      <fj-Row class="clearfix">
+        <fj-col l=6>
+          <AntForm />
+        </fj-col>
+        <fj-col l=6>
+          <!--Element-React的部分表单组件无法在ie9和ie10运行-->
+          <#unless {isIElt11}><ElForm /></#unless>
+        </fj-col>
+      </fj-Row>
+    </div>
   </div>
 </template>
 

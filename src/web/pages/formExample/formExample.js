@@ -4,6 +4,8 @@ import { observer, inject } from 'mobx-react';
 import nj from 'nornj';
 import { registerTmpl } from 'nornj-react';
 import { autobind } from 'core-decorators';
+import cookie from 'js-cookie';
+
 import Form from 'flarej/lib/components/antd/form';
 import 'flarej/lib/components/antd/input';
 import 'flarej/lib/components/antd/select';
@@ -30,8 +32,12 @@ import tmpls from './formExample.t.html';
 @observer
 export default class FormExample extends Component {
   render() {
-    const { store: { formExample } } = this.props;
+    const { store: { common, formExample } } = this.props;
+    const cookieColor = cookie.get('themeColor') ? cookie.get('themeColor') : 'white';
+    const skinColor = this.props.store.common.theme;
+
     return tmpls.container({
+      theme: cookie.get('themeColor') ? cookie.get('themeColor') : 'white',
       styles,
       formExample,
       isIElt11
