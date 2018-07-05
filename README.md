@@ -37,7 +37,13 @@ import { Bar, Pie, Footer } from '../../block';
 ```
 
 # 功能组件
-- 引入 styled-component
+- [styled-component](https://www.styled-components.com)
+
+# 图表开源类库
+- [Echart](http://echarts.baidu.com)
+- [Recharts(D3)](http://recharts.org)
+- [ChartJS](http://www.chartjs.org)
+- [Three](https://threejs.org)
 
 # 计划开发的组件
 - [x] 皮肤切换功能

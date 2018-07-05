@@ -91,6 +91,7 @@
     "antd": "^3.5.1",
     "array-from": "^2.1.1",
     "bundle-loader": "^0.5.5",
+    "chart.js": "^2.7.2",
     "classnames": "^2.2.6",
     "console-polyfill": "^0.3.0",
     "echarts": "^4.1.0",
@@ -115,6 +116,8 @@
     "react-router": "^4.1.1",
     "react-router-dom": "^4.1.1",
     "react-router-transition": "1.2.1",
+    "rechartjs": "^1.0.1",
+    "recharts": "^1.0.0-beta.10",
     "universal-cookie": "^2.0.8",
     "whatwg-fetch": "^2.0.4"
   },

@@ -28,6 +28,7 @@ a.btn-link:hover {color:$gray-0;}
   background: #fff;
   box-shadow: 0 0 6px rgba(44,56,90, 0.1);
   @include clearfix;
+  min-height: 200px;
 }
 
 .titleMod {

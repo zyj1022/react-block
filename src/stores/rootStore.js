@@ -5,6 +5,9 @@ import SiderStore from "./siderStore";
 import FormExampleStore from "./pages/formExampleStore";
 import AnalysisStore from "./pages/analysisStore";
 import MonitorStore from "./pages/monitorStore";
+import RechartsStore from "./pages/rechartsStore";
+import EchartsStore from "./pages/echartsStore";
+import ChartjsStore from "./pages/chartjsStore";
 //{importStore}//
 
 const RootStore = types.model("RootStore", {
@@ -35,16 +38,18 @@ const RootStore = types.model("RootStore", {
       }, {
         type: 'group',
         index: 'Menu2_2',
-        name: 'Components',
+        name: 'Charts',
         expanded: false,
         children: [
-          { type: 'item', level: 3, link: '/Page4', index: 'Page4', name: '页面4' },
+          { type: 'item', level: 3, link: '/Recharts', index: 'Recharts', name: 'Recharts' },
+          { type: 'item', level: 3, link: '/Echarts', index: 'Echarts', name: 'Echarts' },
+          { type: 'item', level: 3, link: '/Chartjs', index: 'Chartjs', name: 'Chartjs' },
         ]
       }]
     }, {
       type: 'group',
       index: 'Menu1_2',
-      name: '一级菜单2',
+      name: 'Charts',
       expanded: false,
       children: [{
         type: 'group',
@@ -71,6 +76,9 @@ const RootStore = types.model("RootStore", {
   formExample: types.optional(FormExampleStore, {}),
   analysis: types.optional(AnalysisStore, {}),
   monitor: types.optional(MonitorStore, {}),
+  recharts: types.optional(RechartsStore, {}),
+  echarts: types.optional(EchartsStore, {}),
+  chartjs: types.optional(ChartjsStore, {}),
   //{pageStore}//
 });
 

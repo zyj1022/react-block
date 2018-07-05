@@ -20,7 +20,7 @@ import Notification from 'flarej/lib/components/antd/notification';
 import tmpls from './analysis.t.html';
 
 import { Bar, Pie, Line, Footer, BaseArea,
-  ChartCard, Radar, Theme } from '../../components/block';
+  ChartCard, Radar } from '../../components/block';
 
 // 页面容器组件
 @registerTmpl('Analysis')

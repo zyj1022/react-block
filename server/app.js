@@ -26,17 +26,20 @@ app.all('*', function(req, res, next) {
   else next();
 });
 
-const page1 = require('./routes/page1');
-app.use('/page1', page1);
-
-const page2 = require('./routes/page2');
-app.use('/page2', page2);
-
 const analysis = require('./routes/analysis');
 app.use('/analysis', analysis);
 
 const monitor = require('./routes/monitor');
 app.use('/monitor', monitor);
+
+const recharts = require('./routes/recharts');
+app.use('/recharts', recharts);
+
+const echarts = require('./routes/echarts');
+app.use('/echarts', echarts);
+
+const chartjs = require('./routes/chartjs');
+app.use('/chartjs', chartjs);
 
 //{pages}//
 

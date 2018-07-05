@@ -6,6 +6,9 @@ import { observer, Provider, inject } from 'mobx-react';
 import loadFormExample from 'bundle-loader?lazy&name=[name]!./src/web/pages/formExample/formExample.js';
 import loadAnalysis from 'bundle-loader?lazy&name=[name]!./src/web/pages/analysis/analysis.js';
 import loadMonitor from 'bundle-loader?lazy&name=[name]!./src/web/pages/monitor/monitor.js';
+import loadRecharts from 'bundle-loader?lazy&name=[name]!./src/web/pages/recharts/recharts.js';
+import loadEcharts from 'bundle-loader?lazy&name=[name]!./src/web/pages/echarts/echarts.js';
+import loadChartjs from 'bundle-loader?lazy&name=[name]!./src/web/pages/chartjs/chartjs.js';
 //{importLoadPage}//
 import Header from './src/web/components/header';
 import Sider from './src/web/components/sider';
@@ -16,7 +19,10 @@ const SiderWithRouter = withRouter(Sider);
 const loadBundles = {
   loadFormExample,
   loadAnalysis,
-  loadMonitor
+  loadMonitor,
+  loadRecharts,
+  loadEcharts,
+  loadChartjs,
   //{loadPage}//
 };
 
@@ -74,6 +80,54 @@ const Monitor = inject('store')(
   )
 );
 
+/**
+ * 页面recharts
+ */
+const Recharts = inject("store")(
+  observer(({ store }) => nj`
+    <${PageWrap}>
+      <${Bundle} load=${loadRecharts} store=${store} isPc loadBundles=${loadBundles}>
+        ${(_Recharts) => {
+          const Recharts = withRouter(_Recharts)
+          return nj`<${Recharts}/>`();
+        }}
+      </${Bundle}>
+    </${PageWrap}>
+  `())
+);
+
+/**
+ * 页面echarts
+ */
+const Echarts = inject("store")(
+  observer(({ store }) => nj`
+    <${PageWrap}>
+      <${Bundle} load=${loadEcharts} store=${store} isPc loadBundles=${loadBundles}>
+        ${(_Echarts) => {
+          const Echarts = withRouter(_Echarts)
+          return nj`<${Echarts}/>`();
+        }}
+      </${Bundle}>
+    </${PageWrap}>
+  `())
+);
+
+/**
+ * 页面chartjs
+ */
+const Chartjs = inject("store")(
+  observer(({ store }) => nj`
+    <${PageWrap}>
+      <${Bundle} load=${loadChartjs} store=${store} isPc loadBundles=${loadBundles}>
+        ${(_Chartjs) => {
+          const Chartjs = withRouter(_Chartjs)
+          return nj`<${Chartjs}/>`();
+        }}
+      </${Bundle}>
+    </${PageWrap}>
+  `())
+);
+
 //{pageComponent}//
 
 const PageWrap = inject('store')(
@@ -98,6 +152,10 @@ const routes = () =>
     <Route exact path='/FormExample' component=${FormExample} />
     <Route exact path='/Analysis' component=${Analysis} />
     <Route exact path='/Monitor' component=${Monitor} />
+    <Route exact path='/Recharts' component=${Recharts} />
+    <Route exact path='/Echarts' component=${Echarts} />
+    
+    <Route exact path='/Chartjs' component=${Chartjs} />
     <!--//{route}//-->
     <Redirect from='*' to='/'/>
   </router-Switch>

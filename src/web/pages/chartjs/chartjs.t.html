@@ -1,0 +1,32 @@
+<template name="container">
+  <div class="pageMod {theme === 'dark' ? ('dark-theme', '')}">
+    <div class="row">
+       <ul>
+         <li class="col-4">
+            <div class="wrapMod">
+              <div class="titleMod">
+                  <h2><ant-Icon type="area-chart" /><span>图表展示</span></h2>
+              </div>
+              <div class="chartBox">
+                  <{bar} data={barData} options={barOptions} />
+              </div>
+            </div>
+         </li>
+         <li class="col-4">
+            <div class="wrapMod">
+              <div class="titleMod">
+                  <h2><ant-Icon type="area-chart" /><span>图表展示</span></h2>
+              </div>
+            </div>
+         </li>
+         <li class="col-4">
+            <div class="wrapMod">
+              <div class="titleMod">
+                  <h2><ant-Icon type="area-chart" /><span>图表展示</span></h2>
+              </div>
+            </div>
+         </li>
+       </ul>
+    </div>
+  </div>
+</template>
