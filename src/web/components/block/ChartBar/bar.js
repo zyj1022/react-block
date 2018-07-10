@@ -12,8 +12,8 @@ import graphic from 'echarts/lib/util/graphic.js';
 
 import * as chart from '../chartConfig';
 
-@registerTmpl('Bar')
-class Bar extends Component {
+@registerTmpl('ec-Bar')
+export default class Bar extends Component {
 
   render() {
     const { refName, xAxis, legend, data, theme} = this.props;
@@ -121,5 +121,3 @@ class Bar extends Component {
     });
   }
 }
-
-export default Bar;

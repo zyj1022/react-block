@@ -31,7 +31,7 @@ export const doughnutOptions = {
     position: 'top'
   },
   title: {
-    display: true,
+    display: false,
     text: 'Doughnut Chart',
     // fontColor: '#fff'
   }

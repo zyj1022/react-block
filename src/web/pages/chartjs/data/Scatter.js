@@ -44,7 +44,7 @@ export const scatterOptions = {
     position: 'top'
   },
   title: {
-    display: true,
+    display: false,
     text: 'Scatter Chart',
     // fontColor: '#fff'
   }

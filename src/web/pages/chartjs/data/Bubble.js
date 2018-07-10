@@ -97,7 +97,7 @@ export const bubbleOptions = {
     position: 'top'
   },
   title: {
-    display: true,
+    display: false,
     text: 'Bubble Chart',
     // fontColor: '#fff'
   }

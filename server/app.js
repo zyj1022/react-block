@@ -35,11 +35,11 @@ app.use('/monitor', monitor);
 const recharts = require('./routes/recharts');
 app.use('/recharts', recharts);
 
-const echarts = require('./routes/echarts');
-app.use('/echarts', echarts);
-
 const chartjs = require('./routes/chartjs');
 app.use('/chartjs', chartjs);
+
+const echart = require('./routes/echart');
+app.use('/echart', echart);
 
 //{pages}//
 

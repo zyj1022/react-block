@@ -6,8 +6,8 @@ import FormExampleStore from "./pages/formExampleStore";
 import AnalysisStore from "./pages/analysisStore";
 import MonitorStore from "./pages/monitorStore";
 import RechartsStore from "./pages/rechartsStore";
-import EchartsStore from "./pages/echartsStore";
 import ChartjsStore from "./pages/chartjsStore";
+import EchartStore from "./pages/echartStore";
 //{importStore}//
 
 const RootStore = types.model("RootStore", {
@@ -42,7 +42,7 @@ const RootStore = types.model("RootStore", {
         expanded: false,
         children: [
           { type: 'item', level: 3, link: '/Recharts', index: 'Recharts', name: 'Recharts' },
-          { type: 'item', level: 3, link: '/Echarts', index: 'Echarts', name: 'Echarts' },
+          { type: 'item', level: 3, link: '/Echart', index: 'Echart', name: 'Echart' },
           { type: 'item', level: 3, link: '/Chartjs', index: 'Chartjs', name: 'Chartjs' },
         ]
       }]
@@ -77,8 +77,8 @@ const RootStore = types.model("RootStore", {
   analysis: types.optional(AnalysisStore, {}),
   monitor: types.optional(MonitorStore, {}),
   recharts: types.optional(RechartsStore, {}),
-  echarts: types.optional(EchartsStore, {}),
   chartjs: types.optional(ChartjsStore, {}),
+  echart: types.optional(EchartStore, {}),
   //{pageStore}//
 });
 

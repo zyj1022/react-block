@@ -52,7 +52,7 @@ export const radarOptions = {
     position: 'top'
   },
   title: {
-    display: true,
+    display: false,
     text: 'RadBar Chart',
     // fontColor: '#fff'
   },

@@ -43,7 +43,7 @@ export default class Chartjs extends Component {
              <li className="col-6">
                <div className="wrapMod">
                  <div className="titleMod">
-                     <h2><ant-Icon type="area-chart" /><span>图表展示</span></h2>
+                     <h2><ant-Icon type="area-chart" /><span>Bubble Chart</span></h2>
                  </div>
                  <div className={styles.chartBox}>
                    <Bubble data={bubbleData} options={bubbleOptions}/>
@@ -53,7 +53,7 @@ export default class Chartjs extends Component {
             <li className="col-6">
                <div className="wrapMod">
                  <div className="titleMod">
-                     <h2><ant-Icon type="area-chart" /><span>图表展示</span></h2>
+                     <h2><ant-Icon type="area-chart" /><span>Scatter Chart</span></h2>
                  </div>
                  <div className={styles.chartBox}>
                    <Scatter data={scatterData} options={scatterOptions}/>
@@ -63,7 +63,7 @@ export default class Chartjs extends Component {
              <li className="col-4">
                 <div className="wrapMod">
                   <div className="titleMod">
-                      <h2><ant-Icon type="area-chart" /><span>图表展示</span></h2>
+                      <h2><ant-Icon type="area-chart" /><span>Bar Chart</span></h2>
                   </div>
                   <div className={styles.chartBox}>
                     <Bar data={barData} options={barOptions} />
@@ -73,7 +73,7 @@ export default class Chartjs extends Component {
              <li className="col-4">
                 <div className="wrapMod">
                   <div className="titleMod">
-                      <h2><ant-Icon type="area-chart" /><span>图表展示</span></h2>
+                      <h2><ant-Icon type="area-chart" /><span>Line Chart</span></h2>
                   </div>
                   <div className={styles.chartBox}>
                     <Line data={lineData}  options={lineOptions} />
@@ -83,7 +83,7 @@ export default class Chartjs extends Component {
              <li className="col-4">
                 <div className="wrapMod">
                   <div className="titleMod">
-                      <h2><ant-Icon type="area-chart" /><span>图表展示</span></h2>
+                      <h2><ant-Icon type="area-chart" /><span>Doughnut Chart</span></h2>
                   </div>
                   <div className={styles.chartBox}>
                     <Doughnut data={doughnutData} options={doughnutOptions}/>
@@ -93,7 +93,7 @@ export default class Chartjs extends Component {
              <li className="col-4">
                 <div className="wrapMod">
                   <div className="titleMod">
-                      <h2><ant-Icon type="area-chart" /><span>图表展示</span></h2>
+                      <h2><ant-Icon type="area-chart" /><span>RadBar Chart</span></h2>
                   </div>
                   <div className={styles.chartBox}>
                     <Radar data={radarData} options={radarOptions} />
@@ -103,7 +103,7 @@ export default class Chartjs extends Component {
              <li className="col-4">
                 <div className="wrapMod">
                   <div className="titleMod">
-                      <h2><ant-Icon type="area-chart" /><span>图表展示</span></h2>
+                      <h2><ant-Icon type="area-chart" /><span>Pie Chart</span></h2>
                   </div>
                   <div className={styles.chartBox}>
                     <Pie data={pieData} options={pieOptions}/>
@@ -113,7 +113,7 @@ export default class Chartjs extends Component {
              <li className="col-4">
                 <div className="wrapMod">
                   <div className="titleMod">
-                      <h2><ant-Icon type="area-chart" /><span>图表展示</span></h2>
+                      <h2><ant-Icon type="area-chart" /><span>PolarArea Chart</span></h2>
                   </div>
                   <div className={styles.chartBox}>
                     <PolarArea data={polarAreaData} options={polarAreaOptions} />

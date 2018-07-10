@@ -3,7 +3,7 @@ import { observable, toJS } from 'mobx';
 import { fetchData } from 'flarej/lib/utils/fetchConfig';
 import Notification from '../../utils/notification';
 
-const EchartsStore = types.model("EchartsStore", {
+const EchartStore = types.model("EchartStore", {
     bool: types.optional(types.boolean, true), // 布尔类型声明
     strs: types.optional(types.string, ''), // 字符串类型声明
     arrs: types.optional(types.array(types.string), []), // 数组类型声明
@@ -23,7 +23,7 @@ const EchartsStore = types.model("EchartsStore", {
       },
 
       getModData(params) {
-        return fetchData(`${__HOST}/echarts/getModData`,
+        return fetchData(`${__HOST}/echart/getModData`,
           self.setModData,
           params, { method: 'get' }).catch((ex) => {
           Notification.error({
@@ -47,4 +47,4 @@ const EchartsStore = types.model("EchartsStore", {
     };
   });
 
-export default EchartsStore;
+export default EchartStore;
