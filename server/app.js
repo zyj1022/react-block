@@ -41,6 +41,15 @@ app.use('/chartjs', chartjs);
 const echart = require('./routes/echart');
 app.use('/echart', echart);
 
+const buttons = require('./routes/buttons');
+app.use('/buttons', buttons);
+
+const cards = require('./routes/cards');
+app.use('/cards', cards);
+
+const grid = require('./routes/grid');
+app.use('/grid', grid);
+
 //{pages}//
 
 const { resultData } = require('./common/utils');

@@ -8,6 +8,9 @@ import MonitorStore from "./pages/monitorStore";
 import RechartsStore from "./pages/rechartsStore";
 import ChartjsStore from "./pages/chartjsStore";
 import EchartStore from "./pages/echartStore";
+import ButtonsStore from "./pages/buttonsStore";
+import CardsStore from "./pages/cardsStore";
+import GridStore from "./pages/gridStore";
 //{importStore}//
 
 const RootStore = types.model("RootStore", {
@@ -18,7 +21,7 @@ const RootStore = types.model("RootStore", {
   }),
 
   sider: types.optional(SiderStore, {
-    isOpen: false,
+    isOpen: true,
     current: 'page1',
     menuData: [{
       type: 'group',
@@ -44,6 +47,16 @@ const RootStore = types.model("RootStore", {
           { type: 'item', level: 3, link: '/Recharts', index: 'Recharts', name: 'Recharts' },
           { type: 'item', level: 3, link: '/Echart', index: 'Echart', name: 'Echart' },
           { type: 'item', level: 3, link: '/Chartjs', index: 'Chartjs', name: 'Chartjs' },
+        ]
+      }, {
+        type: 'group',
+        index: 'Menu2_3',
+        name: 'UI Elements',
+        expanded: false,
+        children: [
+          { type: 'item', level: 3, link: '/Buttons', index: 'Buttons', name: 'Buttons' },
+          { type: 'item', level: 3, link: '/Cards', index: 'Cards', name: 'Cards' },
+          { type: 'item', level: 3, link: '/Grid', index: 'Grid', name: 'Grid' },
         ]
       }]
     }, {
@@ -79,6 +92,9 @@ const RootStore = types.model("RootStore", {
   recharts: types.optional(RechartsStore, {}),
   chartjs: types.optional(ChartjsStore, {}),
   echart: types.optional(EchartStore, {}),
+  buttons: types.optional(ButtonsStore, {}),
+  cards: types.optional(CardsStore, {}),
+  grid: types.optional(GridStore, {}),
   //{pageStore}//
 });
 

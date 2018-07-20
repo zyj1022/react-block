@@ -41,9 +41,11 @@ import { Bar, Pie, Footer } from '../../block';
 
 # 图表开源类库
 - [Echart](http://echarts.baidu.com)
+  - [react-echarts-packet](https://www.npmjs.com/package/react-echarts-packet)
 - [Recharts(D3)](http://recharts.org)
-- [ChartJS](http://www.chartjs.org)
-- [Three](https://threejs.org)
+- [ChartJS](https://www.npmjs.com/package/rechartjs)
+  - [rechartjs](https://www.npmjs.com/package/rechartjs)
+
 
 # 计划开发的组件
 - [x] 皮肤切换功能
@@ -55,7 +57,7 @@ import { Bar, Pie, Footer } from '../../block';
   - [ ] 横向查询类型表单
   - [ ] 纵向表单
 - [ ] 富文本编辑器
-- [ ] 常用图表部分
+- [x] 常用图表部分
   - [x] 饼状图
   - [x] 柱状图
   - [x] 折线图
@@ -63,6 +65,19 @@ import { Bar, Pie, Footer } from '../../block';
   - [x] 雷达图
   - [x] 环形图
 - [x] [页脚版权信息]
+- [ ] UI Elements组件（）
+  - [x] Buttons
+  - [ ] Layout
+  - [ ] Grid
+  - [ ] Icon
+  - [ ] Breadcrumb
+  - [ ] Dropdown
+  - [ ] Checkbox
+  - [ ] Radio
+  - [ ] Input
+  - [ ] Card
+  - more……
+
 
 ……more
 

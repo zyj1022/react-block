@@ -9,6 +9,9 @@ import loadMonitor from 'bundle-loader?lazy&name=[name]!./src/web/pages/monitor/
 import loadChartjs from 'bundle-loader?lazy&name=[name]!./src/web/pages/chartjs/chartjs.js';
 import loadRecharts from 'bundle-loader?lazy&name=[name]!./src/web/pages/recharts/recharts.js';
 import loadEchart from 'bundle-loader?lazy&name=[name]!./src/web/pages/echart/echart.js';
+import loadButtons from 'bundle-loader?lazy&name=[name]!./src/web/pages/buttons/buttons.js';
+import loadCards from 'bundle-loader?lazy&name=[name]!./src/web/pages/cards/cards.js';
+import loadGrid from 'bundle-loader?lazy&name=[name]!./src/web/pages/grid/grid.js';
 //{importLoadPage}//
 import Header from './src/web/components/header';
 import Sider from './src/web/components/sider';
@@ -23,6 +26,9 @@ const loadBundles = {
   loadRecharts,
   loadChartjs,
   loadEchart,
+  loadButtons,
+  loadCards,
+  loadGrid,
   //{loadPage}//
 };
 
@@ -128,6 +134,54 @@ const Echart = inject("store")(
   `())
 );
 
+/**
+ * 页面buttons
+ */
+const Buttons = inject("store")(
+  observer(({ store }) => nj`
+    <${PageWrap}>
+      <${Bundle} load=${loadButtons} store=${store} isPc loadBundles=${loadBundles}>
+        ${(_Buttons) => {
+          const Buttons = withRouter(_Buttons)
+          return nj`<${Buttons}/>`();
+        }}
+      </${Bundle}>
+    </${PageWrap}>
+  `())
+);
+
+/**
+ * 页面cards
+ */
+const Cards = inject("store")(
+  observer(({ store }) => nj`
+    <${PageWrap}>
+      <${Bundle} load=${loadCards} store=${store} isPc loadBundles=${loadBundles}>
+        ${(_Cards) => {
+          const Cards = withRouter(_Cards)
+          return nj`<${Cards}/>`();
+        }}
+      </${Bundle}>
+    </${PageWrap}>
+  `())
+);
+
+/**
+ * 页面grid
+ */
+const Grid = inject("store")(
+  observer(({ store }) => nj`
+    <${PageWrap}>
+      <${Bundle} load=${loadGrid} store=${store} isPc loadBundles=${loadBundles}>
+        ${(_Grid) => {
+          const Grid = withRouter(_Grid)
+          return nj`<${Grid}/>`();
+        }}
+      </${Bundle}>
+    </${PageWrap}>
+  `())
+);
+
 //{pageComponent}//
 
 const PageWrap = inject('store')(
@@ -155,6 +209,9 @@ const routes = () =>
     <Route exact path='/Recharts' component=${Recharts} />
     <Route exact path='/Chartjs' component=${Chartjs} />
     <Route exact path='/Echart' component=${Echart} />
+    <Route exact path='/Buttons' component=${Buttons} />
+    <Route exact path='/Cards' component=${Cards} />
+    <Route exact path='/Grid' component=${Grid} />
     <!--//{route}//-->
     <Redirect from='*' to='/'/>
   </router-Switch>
